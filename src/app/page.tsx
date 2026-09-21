@@ -20,14 +20,14 @@ export default async function HomePage() {
 
       {/* DESCRIPTION — y 1152 */}
       <section className="page-container mt-[50px] lg:mt-[100px] flex flex-col gap-8 lg:flex-row lg:gap-0">
-        <Reveal className="flex w-full flex-col gap-[14px] lg:w-[498px]">
+        <Reveal className="flex w-full flex-col gap-[14px] lg:w-[38.9%]">
           <p className="t-eyebrow">{description.eyebrow}</p>
           <h1 className="t-h1">
             <Lines text={description.heading} />
           </h1>
           <p className="t-h3 whitespace-pre-wrap">{description.stats}</p>
         </Reveal>
-        <Reveal delay={0.15} className="w-full lg:ml-auto lg:w-[630px]">
+        <Reveal delay={0.15} className="w-full lg:ml-auto lg:w-[49.2%]">
           <Paragraphs items={description.body} />
         </Reveal>
       </section>
@@ -39,14 +39,14 @@ export default async function HomePage() {
 
       {/* PEOPLE — y 1953 */}
       <section className="page-container mt-[34px] lg:mt-[69px] flex flex-col gap-8 lg:flex-row lg:gap-0">
-        <Reveal className="flex w-full flex-col gap-[13px] lg:w-[629px]">
+        <Reveal className="flex w-full flex-col gap-[13px] lg:w-[49.1%]">
           <p className="t-eyebrow">{team.eyebrow}</p>
           <h2 className="t-h2">{team.heading}</h2>
-          <Paragraphs items={team.paragraphs ?? []} className="w-full lg:w-[432px]" />
+          <Paragraphs items={team.paragraphs ?? []} className="w-full lg:w-[68.7%]" />
           {team.link && <TextLink link={team.link} />}
         </Reveal>
-        <Reveal delay={0.15} className="w-full lg:w-[650px]">
-          <Picture image={team.image} zoom className="aspect-[650/434] w-full lg:h-[434px]" sizes="(min-width: 1024px) 650px, 100vw" />
+        <Reveal delay={0.15} className="w-full lg:w-[50.8%]">
+          <Picture image={team.image} zoom className="aspect-[650/434] w-full" sizes="(min-width: 1024px) 650px, 100vw" />
         </Reveal>
       </section>
 
@@ -67,9 +67,9 @@ export default async function HomePage() {
               <Link href={f.link.href} aria-hidden tabIndex={-1} className="block">
                 <Picture image={f.image} zoom className="aspect-[412/544] w-full" sizes="(min-width: 1024px) 412px, 100vw" />
               </Link>
-              <div className="flex flex-col gap-[14px] lg:w-[412px]">
+              <div className="flex flex-col gap-[14px]">
                 <p className="t-body leading-normal">{f.eyebrow}</p>
-                <h3 className="t-h2 lg:w-[388px]">{f.heading}</h3>
+                <h3 className="t-h2 lg:w-[94%]">{f.heading}</h3>
                 <p className="t-body">{f.body}</p>
                 <Link href={f.link.href} className="font-angie text-[12px] leading-normal underline [text-underline-position:from-font] transition-opacity duration-300 hover:opacity-60">
                   {f.link.label}
@@ -84,7 +84,7 @@ export default async function HomePage() {
 
       {/* LOCATION — y 5284 */}
       <section id="location" className="page-container mt-[26px] lg:mt-[52px] flex scroll-mt-[54px] flex-col gap-10 lg:flex-row lg:gap-0">
-        <Reveal className="mt-[13px] flex w-full flex-col gap-[13px] lg:w-[629px]">
+        <Reveal className="mt-[13px] flex w-full flex-col gap-[13px] lg:w-[49.1%]">
           <p className="t-eyebrow">{location.eyebrow}</p>
           <h2 className="t-h2">{location.heading}</h2>
           <div className="t-body whitespace-pre-wrap">
@@ -104,8 +104,8 @@ export default async function HomePage() {
           {location.link && <TextLink link={location.link} />}
         </Reveal>
         {location.map && (
-          <Reveal delay={0.2} className="w-full max-w-[581px] lg:-mt-[15px] lg:ml-[63px] lg:w-[581px]">
-            <Picture image={location.map} className="aspect-[581/462] w-full lg:h-[462px]" sizes="(min-width: 1024px) 581px, 100vw" />
+          <Reveal delay={0.2} className="w-full max-w-[581px] lg:-mt-[15px] lg:ml-[4.9%] lg:w-[45.4%]">
+            <Picture image={location.map} className="aspect-[581/462] w-full" sizes="(min-width: 1024px) 581px, 100vw" />
           </Reveal>
         )}
       </section>
@@ -115,14 +115,14 @@ export default async function HomePage() {
       {/* INQUIRIES — y 5772 */}
       <section id="inquiries" className="page-container mt-[16px] scroll-mt-[54px] pb-[27px] lg:pb-[54px]">
         <Reveal className="pt-[29px]">
-          <SectionHeading eyebrow={inquiries.eyebrow} heading={inquiries.heading} className="lg:w-[629px]" />
+          <SectionHeading eyebrow={inquiries.eyebrow} heading={inquiries.heading} className="lg:w-[49.1%]" />
         </Reveal>
         <div className="mt-[30px] lg:mt-[60px] flex flex-col gap-8 lg:flex-row lg:gap-0">
-          <Reveal className="w-full lg:w-[590px]">
-            <Picture image={inquiries.image} className="aspect-[590/635] w-full lg:h-[635px]" sizes="(min-width: 1024px) 590px, 100vw" />
+          <Reveal className="w-full lg:w-[46.1%]">
+            <Picture image={inquiries.image} className="aspect-[590/635] w-full" sizes="(min-width: 1024px) 590px, 100vw" />
           </Reveal>
-          <Reveal delay={0.15} className="flex w-full flex-col lg:ml-[60px] lg:w-[630px]">
-            <p className="t-body whitespace-pre-wrap lg:w-[540px]">
+          <Reveal delay={0.15} className="flex w-full flex-col lg:ml-[4.7%] lg:w-[49.2%]">
+            <p className="t-body whitespace-pre-wrap lg:w-[85.7%]">
               <Lines text={inquiries.body} />
             </p>
             <div className="mt-[17px]">

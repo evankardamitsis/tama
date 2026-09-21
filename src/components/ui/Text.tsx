@@ -35,7 +35,9 @@ export function Bullets({ items, className = "" }: { items: string[]; className?
   return (
     <ul className={`t-body ${className}`}>
       {items.map((it, i) => (
-        <li key={i}>–&nbsp;&nbsp;{it}</li>
+        <li key={i} className="pl-[1.25em] -indent-[1.25em]">
+          –&nbsp;&nbsp;{it}
+        </li>
       ))}
     </ul>
   );

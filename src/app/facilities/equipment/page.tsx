@@ -18,7 +18,7 @@ export default async function EquipmentPage() {
 
       <section className="page-container mt-[28px] lg:mt-[55px] flex flex-col gap-8 lg:flex-row lg:gap-0">
         {/* Text column — x 80, w 630, 13px rhythm */}
-        <div className="flex w-full flex-col gap-[13px] lg:w-[630px]">
+        <div className="flex w-full flex-col gap-[13px] lg:w-[49.2%]">
           <Reveal className="flex flex-col gap-[13px]">
             <p className="t-eyebrow">{page.intro.eyebrow}</p>
             <h1 className="t-h2">{page.intro.heading}</h1>
@@ -32,7 +32,7 @@ export default async function EquipmentPage() {
         </div>
 
         {/* Image column — x 733 */}
-        <div className="flex w-full flex-col lg:ml-[23px] lg:mt-[52px] lg:w-[627px]">
+        <div className="flex w-full flex-col lg:ml-[1.8%] lg:mt-[52px] lg:w-[49%]">
           <div className="grid grid-cols-2 gap-[23px]">
             <Reveal>
               <Picture image={small[0]} zoom className="aspect-[299/406] w-full" sizes="(min-width: 1024px) 299px, 50vw" />
@@ -41,7 +41,7 @@ export default async function EquipmentPage() {
               <Picture image={small[1]} zoom className="aspect-[305/406] w-full" sizes="(min-width: 1024px) 305px, 50vw" />
             </Reveal>
           </div>
-          <Reveal className="mt-[15px] lg:-ml-[3px] lg:w-[630px]">
+          <Reveal className="mt-[15px]">
             <Picture image={wide} zoom className="aspect-[630/420] w-full" sizes="(min-width: 1024px) 630px, 100vw" />
           </Reveal>
         </div>

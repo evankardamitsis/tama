@@ -48,16 +48,9 @@ Defined in `src/app/globals.css` under `@theme`:
 - Colours: `sand #F3EEE7`, `bark #332B25`, `terracotta #B06734`, `navy #1D212B`, `olive #8D8F6B`, `cream #FEFAF0`
 - Type ramp utilities: `t-h1` 34, `t-h2` 26, `t-h3` 22, `t-body` 16/1.0, `t-eyebrow` 16 bold, `t-subline` 12 bold, `t-nav` 14, `t-footer` 14/25
 
-## Fonts (action required)
+## Fonts
 
-The design uses **Angie Sans Std** (Regular + Bold), a licensed typeface. Drop the files in `public/fonts/` as:
-
-```
-public/fonts/AngieSansStd-Regular.woff2   (or .otf)
-public/fonts/AngieSansStd-Bold.woff2      (or .otf)
-```
-
-Until then the site falls back to Gill Sans / system sans.
+**Angie Sans Std** (Regular, Demi, Bold + italics) as WOFF2 in `public/fonts/`, declared in `globals.css`; Regular and Bold are preloaded. It is a commercial typeface — keep the licence with the project.
 
 ## Still missing from Figma
 

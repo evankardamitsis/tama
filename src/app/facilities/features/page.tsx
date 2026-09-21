@@ -18,7 +18,7 @@ export default async function FeaturesPage() {
 
       <section className="page-container mt-[28px] lg:mt-[55px]">
         <Reveal>
-          <SectionHeading as="h1" eyebrow={page.intro.eyebrow} heading={page.intro.heading} className="lg:w-[472px]" />
+          <SectionHeading as="h1" eyebrow={page.intro.eyebrow} heading={page.intro.heading} className="lg:w-[36.9%]" />
         </Reveal>
 
         <div className="mt-[27px] grid grid-cols-1 gap-[20px] lg:grid-cols-2">
@@ -33,7 +33,7 @@ export default async function FeaturesPage() {
           {page.columns.map((col, i) => (
             <Reveal key={col.heading} delay={i * 0.12}>
               <h2 className="t-h3">{col.heading}</h2>
-              <Bullets items={col.items} className={`mt-[14px] ${i === 0 ? "lg:w-[394px]" : "lg:w-[629px]"}`} />
+              <Bullets items={col.items} className={`mt-[14px] ${i === 0 ? "lg:w-[62.5%]" : ""}`} />
             </Reveal>
           ))}
         </div>

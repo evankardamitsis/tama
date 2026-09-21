@@ -33,7 +33,7 @@ export default async function ServicesPage() {
           {page.columns.map((col, i) => (
             <Reveal key={col.heading} delay={i * 0.12}>
               <h2 className="t-h3">{col.heading}</h2>
-              <Bullets items={col.items} className={`mt-[20px] ${i === 0 ? "lg:w-[548px]" : "lg:ml-[3px] lg:w-[628px]"}`} />
+              <Bullets items={col.items} className={`mt-[20px] ${i === 0 ? "lg:w-[87%]" : ""}`} />
             </Reveal>
           ))}
         </div>

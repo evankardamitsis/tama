@@ -1,24 +1,48 @@
 @import "tailwindcss";
 
 /* ---------------------------------------------------------------------------
- * Brand fonts
- * Angie Sans Std is a licensed typeface. Drop the font files into
- * /public/fonts (see README) — until then the fallback stack is used.
+ * Brand fonts — Angie Sans Std (licensed; files in /public/fonts)
  * ------------------------------------------------------------------------- */
 @font-face {
   font-family: "Angie Sans Std";
-  src: url("/fonts/AngieSansStd-Regular.woff2") format("woff2"),
-       url("/fonts/AngieSansStd-Regular.otf") format("opentype");
+  src: url("/fonts/AngieSansStd-Regular.woff2") format("woff2");
   font-weight: 400;
   font-style: normal;
   font-display: swap;
 }
 @font-face {
   font-family: "Angie Sans Std";
-  src: url("/fonts/AngieSansStd-Bold.woff2") format("woff2"),
-       url("/fonts/AngieSansStd-Bold.otf") format("opentype");
+  src: url("/fonts/AngieSansStd-Italic.woff2") format("woff2");
+  font-weight: 400;
+  font-style: italic;
+  font-display: swap;
+}
+@font-face {
+  font-family: "Angie Sans Std";
+  src: url("/fonts/AngieSansStd-Demi.woff2") format("woff2");
+  font-weight: 600;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: "Angie Sans Std";
+  src: url("/fonts/AngieSansStd-DemiItalic.woff2") format("woff2");
+  font-weight: 600;
+  font-style: italic;
+  font-display: swap;
+}
+@font-face {
+  font-family: "Angie Sans Std";
+  src: url("/fonts/AngieSansStd-Bold.woff2") format("woff2");
   font-weight: 700;
   font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: "Angie Sans Std";
+  src: url("/fonts/AngieSansStd-BoldItalic.woff2") format("woff2");
+  font-weight: 700;
+  font-style: italic;
   font-display: swap;
 }
 

@@ -16,7 +16,7 @@ export default async function GalleryPage() {
 
       <section className="page-container mt-[28px] pb-[40px] lg:mt-[55px] lg:pb-[80px]">
         <Reveal>
-          <SectionHeading as="h1" eyebrow={page.intro.eyebrow} heading={page.intro.heading} gap={8} className="lg:w-[629px]" />
+          <SectionHeading as="h1" eyebrow={page.intro.eyebrow} heading={page.intro.heading} gap={8} className="lg:w-[49.1%]" />
         </Reveal>
         <div className="mt-[31px]">
           <GalleryGrid items={page.items} featured={page.featured} />

@@ -80,7 +80,9 @@ export function Gallery({ gallery }: { gallery: HomePage["gallery"] }) {
                   <Picture image={coverFallback(it.image)} zoom className={wide ? "aspect-[3/2] w-full" : "aspect-[3/4] w-full"} sizes={wide ? "100vw" : "50vw"} />
                 </button>
               ) : (
-                <VideoTile item={it} onOpen={() => setOpen(i)} sizes="50vw" />
+                <div className="aspect-[3/4] w-full">
+                  <VideoTile item={it} fill onOpen={() => setOpen(i)} sizes="50vw" />
+                </div>
               )}
             </Reveal>
           );

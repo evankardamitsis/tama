@@ -16,13 +16,13 @@ export default async function VillaLayoutPage() {
       <Hero hero={page.hero} />
 
       <section className="page-container mt-[28px] lg:mt-[56px]">
-        <Reveal className="flex w-full flex-col gap-[13px] lg:w-[472px]">
+        <Reveal className="flex w-full flex-col gap-[13px] lg:w-[36.9%]">
           <p className="t-eyebrow">{page.intro.eyebrow}</p>
           <h1 className="t-h2">{page.intro.heading}</h1>
-          <Paragraphs items={page.intro.paragraphs ?? []} className="lg:w-[394px]" />
+          <Paragraphs items={page.intro.paragraphs ?? []} className="lg:w-[83.5%]" />
         </Reveal>
 
-        <div className="mt-[52px] lg:mt-[104px] grid grid-cols-1 gap-[18px] lg:grid-cols-[472px_472px] lg:justify-between">
+        <div className="mt-[52px] lg:mt-[104px] grid grid-cols-1 gap-[18px] lg:grid-cols-[36.9%_36.9%] lg:justify-between">
           <Reveal>
             <Accordion items={page.accordions.left} />
           </Reveal>

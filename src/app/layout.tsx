@@ -20,6 +20,10 @@ export default async function RootLayout({
   const site = await getSiteSettings();
   return (
     <html lang="en">
+      <head>
+        <link rel="preload" href="/fonts/AngieSansStd-Regular.woff2" as="font" type="font/woff2" crossOrigin="anonymous" />
+        <link rel="preload" href="/fonts/AngieSansStd-Bold.woff2" as="font" type="font/woff2" crossOrigin="anonymous" />
+      </head>
       <body className="min-h-screen bg-sand">
         <Navbar site={site} />
         {children}
