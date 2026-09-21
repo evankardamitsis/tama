@@ -42,7 +42,7 @@ export function Bullets({ items, className = "" }: { items: string[]; className?
 }
 
 export function TextLink({ link, className = "" }: { link: LinkT; className?: string }) {
-  const cls = `t-subline underline decoration-solid [text-underline-position:from-font] ${className}`;
+  const cls = `t-subline underline decoration-solid [text-underline-position:from-font] transition-opacity duration-300 hover:opacity-60 ${className}`;
   if (link.external) {
     return (
       <a href={link.href} target="_blank" rel="noreferrer" className={cls}>

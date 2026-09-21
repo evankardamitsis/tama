@@ -42,11 +42,11 @@ export function InquiryForm({ fields, submit }: Props) {
         );
       })}
 
-      <div className="flex items-center gap-6">
+      <div className="flex flex-col items-start gap-4 sm:flex-row sm:items-center sm:gap-6">
         <button
           type="submit"
           disabled={pending}
-          className="inline-flex h-[48px] w-[178px] items-center justify-center rounded-[32px] border border-bark bg-bark pt-[14px] pb-[15px] pl-[19px] pr-[22px] font-angie text-[16px] leading-normal text-white transition-colors hover:bg-transparent hover:text-bark disabled:opacity-60"
+          className="inline-flex h-[48px] w-full sm:w-[178px] items-center justify-center rounded-[32px] border border-bark bg-bark pt-[14px] pb-[15px] pl-[19px] pr-[22px] font-angie text-[16px] leading-normal text-white transition-colors duration-500 ease-[cubic-bezier(0.22,1,0.36,1)] hover:bg-transparent hover:text-bark disabled:opacity-60"
         >
           {pending ? "Sending…" : submit}
         </button>

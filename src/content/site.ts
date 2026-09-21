@@ -24,7 +24,10 @@ export const site: SiteSettings = {
   },
   footer: {
     contactHeading: "CONTACT",
-    contactLines: ["Call us at +306986744889", "or email us at info@tamamykonos.com"],
+    contactLines: [
+      "Call us at +306986744889",
+      "or email us at info@tamamykonos.com",
+    ],
     whatsappLine: "or contact us on WhatsApp",
     menuHeading: "MENU",
     menuLinks: [
@@ -32,13 +35,18 @@ export const site: SiteSettings = {
       { label: "GALLERY", href: "/#gallery" },
       { label: "FACILITIES", href: "/facilities/features" },
     ],
-    followHeading: "FOLLOWUS",
+    followHeading: "FOLLOW US",
     socialLinks: [
       { label: "Instagram", href: "https://instagram.com", external: true },
       { label: "Facebook", href: "https://facebook.com", external: true },
       { label: "Youtube", href: "https://youtube.com", external: true },
     ],
     copyright: "COPYRIGHT © 2026 – VILLA TAMA – ALL RIGHT RESERVED",
+    credit: {
+      prefix: "Developed with",
+      agency: "Below The Fold",
+      href: "https://belowthefold.gr",
+    },
   },
   facilitiesHeading: "FACILITIES",
   facilityCards: [
@@ -48,7 +56,12 @@ export const site: SiteSettings = {
       cta: "Discover more",
       href: "/facilities/features",
       color: "terracotta",
-      image: { src: "/images/gallery-arch.jpg", alt: "Guest resting in a whitewashed arch overlooking the sea", width: 1600, height: 2400 },
+      image: {
+        src: "/images/gallery-arch.jpg",
+        alt: "Guest resting in a whitewashed arch overlooking the sea",
+        width: 1600,
+        height: 2400,
+      },
     },
     {
       key: "equipment",
@@ -56,7 +69,12 @@ export const site: SiteSettings = {
       cta: "Discover more",
       href: "/facilities/equipment",
       color: "navy",
-      image: { src: "/images/card-pool.jpg", alt: "Guests by the heated pool at sunset", width: 1600, height: 2400 },
+      image: {
+        src: "/images/card-pool.jpg",
+        alt: "Guests by the heated pool at sunset",
+        width: 1600,
+        height: 2400,
+      },
     },
     {
       key: "villa-layout",
@@ -64,7 +82,12 @@ export const site: SiteSettings = {
       cta: "Discover more",
       href: "/facilities/villa-layout",
       color: "olive",
-      image: { src: "/images/card-villa.jpg", alt: "The villa's white facade among the greenery", width: 1600, height: 2400 },
+      image: {
+        src: "/images/card-villa.jpg",
+        alt: "The villa's white facade among the greenery",
+        width: 1600,
+        height: 2400,
+      },
     },
     {
       key: "services",
@@ -72,7 +95,12 @@ export const site: SiteSettings = {
       cta: "Discover more",
       href: "/facilities/services",
       color: "bark",
-      image: { src: "/images/card-food.jpg", alt: "A plated dish from the in-house chef", width: 1600, height: 2400 },
+      image: {
+        src: "/images/card-food.jpg",
+        alt: "A plated dish from the in-house chef",
+        width: 1600,
+        height: 2400,
+      },
     },
   ],
 };

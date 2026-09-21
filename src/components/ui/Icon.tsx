@@ -3,8 +3,8 @@ import type { CSSProperties } from "react";
 type Props = {
   /** Path under /public, e.g. "/icons/phone.svg" */
   src: string;
-  width: number;
-  height: number;
+  width: number | string;
+  height: number | string;
   label?: string;
   className?: string;
 };

@@ -2,7 +2,7 @@ import type { HomePage } from "./types";
 
 export const home: HomePage = {
   hero: {
-    image: { src: "/images/home-hero.jpg", alt: "Guests at the edge of the heated pool overlooking the Aegean", width: 2400, height: 1600 },
+    image: { src: "/images/home-hero.jpg", alt: "Guests at the edge of the heated pool overlooking the Aegean", width: 2400, height: 1600, position: "27% 76%" },
     showLogo: true,
   },
   description: {
@@ -66,7 +66,7 @@ export const home: HomePage = {
     eyebrow: "Location",
     heading: "Aleomandra, Mykonos",
     paragraphs: [
-      "The peninsula of Aleomandra is close to the area known as Agios Ioannis, Mykonos, Greece. The location offers extreme privacy plus some of the most enviable sunsets in Mykonos. \nThis bay is the nearest land point to the sacred island of Delos and has picturesque views \nof the Aegean and other nearby Cycladic islands. The villa is conveniently close to Ornos village and Agios Ioannis bay, with several options for swimming, & dining. Mykonos town, with its traditional alleys and energetic nightlife, is just 5′ away by car.",
+      "The peninsula of Aleomandra is close to the area known as Agios Ioannis, Mykonos, Greece. The location offers extreme privacy plus some of the most enviable sunsets in Mykonos. This bay is the nearest land point to the sacred island of Delos and has picturesque views of the Aegean and other nearby Cycladic islands. The villa is conveniently close to Ornos village and Agios Ioannis bay, with several options for swimming, & dining. Mykonos town, with its traditional alleys and energetic nightlife, is just 5′ away by car.",
     ],
     distances: [
       "Mykonos Town → 5′ drive",
@@ -75,8 +75,8 @@ export const home: HomePage = {
       "Airport → 12’ drive",
     ],
     link: { label: "View on map", href: "https://maps.app.goo.gl/L58YZvrQrqbMtvp39", external: true },
-    // TODO: export the Mykonos map illustration from Figma (node 469:677) to /public/images/mykonos-map.svg
-    map: undefined,
+    // Figma node 469:677 ("Layer_1_Image", 581 × 462) exported at 2×.
+    map: { src: "/images/map_image.png", alt: "Map of Mykonos showing the location of Villa Tama in Aleomandra", width: 1162, height: 924, fit: "contain" },
   },
   inquiries: {
     eyebrow: "INQUIRIES",

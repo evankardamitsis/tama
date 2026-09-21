@@ -12,6 +12,10 @@ export type ImageAsset = {
   /** Optional Figma crop (percentages of the container). Reproduces the
    *  exact framing from the design. */
   crop?: { width: number; height: number; left: number; top: number };
+  /** How the bitmap fills its box when no crop is given. Default "cover". */
+  fit?: "cover" | "contain";
+  /** Focal point for "cover" (CSS object-position), e.g. "60% 85%". */
+  position?: string;
 };
 
 export type Link = { label: string; href: string; external?: boolean };
@@ -42,6 +46,7 @@ export type SiteSettings = {
     followHeading: string;
     socialLinks: Link[];
     copyright: string;
+    credit: { prefix: string; agency: string; href: string };
   };
   facilityCards: FacilityCard[];
   facilitiesHeading: string;

@@ -2,12 +2,25 @@ import Image from "next/image";
 import type { CSSProperties } from "react";
 import type { ImageAsset } from "@/content/types";
 
+/**
+ * For boxes whose ratio differs from the Figma one, a fixed crop would
+ * distort — this turns the crop into a cover + focal point instead.
+ */
+export function coverFallback(image: ImageAsset): ImageAsset {
+  const { crop } = image;
+  if (!crop) return image;
+  const axis = (offset: number, size: number) => (size > 100 ? `${Math.min(100, Math.max(0, (-offset / (size - 100)) * 100)).toFixed(1)}%` : "50%");
+  return { ...image, crop: undefined, position: `${axis(crop.left, crop.width)} ${axis(crop.top, crop.height)}` };
+}
+
 type Props = {
   image: ImageAsset;
   className?: string;
   style?: CSSProperties;
   sizes?: string;
   priority?: boolean;
+  /** Slow zoom on hover (or when a parent `.group` is hovered). */
+  zoom?: boolean;
 };
 
 /**
@@ -15,13 +28,13 @@ type Props = {
  * placed with the exact percentage offsets from the design; otherwise it
  * covers the box.
  */
-export function Picture({ image, className = "", style, sizes = "100vw", priority }: Props) {
+export function Picture({ image, className = "", style, sizes = "100vw", priority, zoom }: Props) {
   const { crop } = image;
   // Callers may position the box themselves (e.g. `absolute inset-0`).
   const position = /\babsolute\b/.test(className) ? "" : "relative";
 
   return (
-    <div className={`${position} overflow-hidden ${className}`} style={style}>
+    <div className={`${position} overflow-hidden ${zoom ? "img-zoom" : ""} ${className}`} style={style}>
       {crop ? (
         <Image
           src={image.src}
@@ -40,7 +53,15 @@ export function Picture({ image, className = "", style, sizes = "100vw", priorit
           }}
         />
       ) : (
-        <Image src={image.src} alt={image.alt} fill sizes={sizes} priority={priority} className="object-cover" />
+        <Image
+          src={image.src}
+          alt={image.alt}
+          fill
+          sizes={sizes}
+          priority={priority}
+          className={image.fit === "contain" ? "object-contain" : "object-cover"}
+          style={image.position ? { objectPosition: image.position } : undefined}
+        />
       )}
     </div>
   );

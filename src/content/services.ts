@@ -2,7 +2,7 @@ import type { ServicesPage } from "./types";
 
 export const services: ServicesPage = {
   hero: {
-    image: { src: "/images/services-hero.jpg", alt: "A generous spread prepared by the in-house chef", width: 2400, height: 1600, crop: { width: 100, height: 154.11, left: 0, top: -42.82 } },
+    image: { src: "/images/services-hero.jpg", alt: "A generous spread prepared by the in-house chef", width: 2400, height: 1600, position: "47% 80%" },
   },
   intro: { eyebrow: "FACILITIES", heading: "Services" },
   images: [

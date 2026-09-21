@@ -1,7 +1,9 @@
 "use client";
 
 import Link from "next/link";
+import { motion } from "motion/react";
 import { useEffect } from "react";
+import { DUR, EASE } from "@/components/motion/easing";
 import { Icon } from "@/components/ui/Icon";
 import type { Link as LinkT } from "@/content/types";
 
@@ -29,11 +31,11 @@ export function MenuOverlay({ open, onClose, links, brand }: Props) {
         type="button"
         aria-label="Close menu"
         onClick={onClose}
-        className={`absolute inset-0 bg-bark/30 transition-opacity duration-300 ${open ? "opacity-100" : "opacity-0"}`}
+        className={`absolute inset-0 bg-bark/30 transition-opacity duration-500 ${open ? "opacity-100" : "opacity-0"}`}
       />
       <nav
         aria-label="Main menu"
-        className={`absolute left-0 top-0 h-full w-[281px] bg-sand text-bark shadow-xl transition-transform duration-300 ease-out ${open ? "translate-x-0" : "-translate-x-full"}`}
+        className={`absolute left-0 top-0 h-full w-[min(281px,85vw)] bg-sand text-bark shadow-xl transition-transform duration-500 ease-[cubic-bezier(0.22,1,0.36,1)] ${open ? "translate-x-0" : "-translate-x-full"}`}
       >
         <button
           type="button"
@@ -44,12 +46,18 @@ export function MenuOverlay({ open, onClose, links, brand }: Props) {
           <Icon src="/icons/close.svg" width={18} height={19} />
         </button>
         <ul className="absolute left-[55px] top-[91px] flex w-[200px] flex-col gap-[26px]">
-          {links.map((l) => (
-            <li key={l.label} className="h-[33px]">
-              <Link href={l.href} onClick={onClose} className="t-h2 text-bark">
+          {links.map((l, i) => (
+            <motion.li
+              key={l.label}
+              className="h-[33px]"
+              initial={false}
+              animate={open ? { opacity: 1, x: 0 } : { opacity: 0, x: -10 }}
+              transition={{ duration: DUR.fast, ease: EASE, delay: open ? 0.12 + i * 0.05 : 0 }}
+            >
+              <Link href={l.href} onClick={onClose} className="t-h2 link-line text-bark">
                 {l.label}
               </Link>
-            </li>
+            </motion.li>
           ))}
         </ul>
         <span className="sr-only">{brand}</span>

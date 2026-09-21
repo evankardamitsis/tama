@@ -2,7 +2,7 @@ import type { AboutPage } from "./types";
 
 export const about: AboutPage = {
   hero: {
-    image: { src: "/images/about-hero.jpg", alt: "Silhouette at the window at sunset", width: 2400, height: 1600, crop: { width: 106.67, height: 164.5, left: -3.33, top: -4.8 } },
+    image: { src: "/images/about-hero.jpg", alt: "Silhouette at the window at sunset", width: 2400, height: 1600, position: "50% 7%" },
   },
   concept: {
     eyebrow: "CONCEPT",

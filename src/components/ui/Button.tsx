@@ -10,7 +10,7 @@ type Props = {
 };
 
 const base =
-  "inline-flex h-[48px] items-center justify-center rounded-[32px] border border-bark pt-[14px] pb-[15px] pl-[19px] pr-[22px] font-angie text-[16px] leading-normal whitespace-nowrap transition-colors duration-200";
+  "inline-flex h-[48px] items-center justify-center rounded-[32px] border border-bark pt-[14px] pb-[15px] pl-[19px] pr-[22px] font-angie text-[16px] leading-normal whitespace-nowrap transition-colors duration-500 ease-[cubic-bezier(0.22,1,0.36,1)]";
 const variants = {
   outline: "bg-transparent text-bark hover:bg-bark hover:text-white",
   solid: "bg-bark text-white hover:bg-transparent hover:text-bark",

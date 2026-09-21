@@ -2,7 +2,7 @@ import type { FeaturesPage } from "./types";
 
 export const features: FeaturesPage = {
   hero: {
-    image: { src: "/images/gallery-arch.jpg", alt: "Guest resting in a whitewashed arch", width: 1600, height: 2400, crop: { width: 101.79, height: 352.9, left: -0.82, top: -177.55 } },
+    image: { src: "/images/gallery-arch.jpg", alt: "Guest resting in a whitewashed arch", width: 1600, height: 2400, position: "68% 70%" },
   },
   intro: { eyebrow: "FACILITIES", heading: "Features" },
   images: [

@@ -46,7 +46,7 @@ public/
 Defined in `src/app/globals.css` under `@theme`:
 
 - Colours: `sand #F3EEE7`, `bark #332B25`, `terracotta #B06734`, `navy #1D212B`, `olive #8D8F6B`, `cream #FEFAF0`
-- Type ramp utilities: `t-h1` 34, `t-h2` 26, `t-h3` 22, `t-body` 16/1.0, `t-eyebrow` 16 bold, `t-subline` 12 bold, `t-nav` Inter 14, `t-footer` 14/25
+- Type ramp utilities: `t-h1` 34, `t-h2` 26, `t-h3` 22, `t-body` 16/1.0, `t-eyebrow` 16 bold, `t-subline` 12 bold, `t-nav` 14, `t-footer` 14/25
 
 ## Fonts (action required)
 
@@ -61,8 +61,8 @@ Until then the site falls back to Gill Sans / system sans.
 
 ## Still missing from Figma
 
-- Mykonos map illustration (home › Location, Figma node `469:677`). Export as SVG to
-  `public/images/mykonos-map.svg` and set `location.map` in `src/content/home.ts`.
+- ~~Mykonos map illustration~~
+  (done — `public/images/map_image.png`).
 
 ## Phase 2 — Contentful
 

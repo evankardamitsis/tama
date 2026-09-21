@@ -2,6 +2,28 @@ import Link from "next/link";
 import { Icon } from "@/components/ui/Icon";
 import type { SiteSettings } from "@/content/types";
 
+function Heart() {
+  return (
+    <svg width="11" height="10" viewBox="0 0 24 22" aria-hidden className="mx-[4px] inline-block fill-current">
+      <path d="M12 21.35 10.55 20.03C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z" />
+    </svg>
+  );
+}
+
+function Credit({ credit, className = "" }: { credit: SiteSettings["footer"]["credit"]; className?: string }) {
+  return (
+    <p className={`flex items-center font-angie text-[12px] leading-normal ${className}`}>
+      {credit.prefix}
+      <span className="sr-only">love</span>
+      <Heart />
+      by&nbsp;
+      <a href={credit.href} target="_blank" rel="noreferrer" className="underline [text-underline-position:from-font] hover:text-cream">
+        {credit.agency}
+      </a>
+    </p>
+  );
+}
+
 export function Footer({ site }: { site: SiteSettings }) {
   const f = site.footer;
   return (
@@ -27,7 +49,7 @@ export function Footer({ site }: { site: SiteSettings }) {
         <ul className="absolute left-[408px] top-[85px] flex w-[68px] flex-col gap-[11px] font-angie text-[14px] leading-normal">
           {f.menuLinks.map((l) => (
             <li key={l.label}>
-              <Link href={l.href}>{l.label}</Link>
+              <Link href={l.href} className="link-line">{l.label}</Link>
             </li>
           ))}
         </ul>
@@ -36,13 +58,14 @@ export function Footer({ site }: { site: SiteSettings }) {
         <ul className="absolute left-[731px] top-[82px] w-[498px] t-footer">
           {f.socialLinks.map((l) => (
             <li key={l.label}>
-              <a href={l.href} target="_blank" rel="noreferrer">
+              <a href={l.href} target="_blank" rel="noreferrer" className="link-line">
                 {l.label}
               </a>
             </li>
           ))}
         </ul>
         <p className="absolute left-[731px] top-[221px] w-[392px] font-angie text-[14px] leading-normal">{f.copyright}</p>
+        <Credit credit={f.credit} className="absolute left-[731px] top-[245px] text-white/70" />
 
         <Link href="/" aria-label={`${site.brand} home`} className="absolute left-[82px] top-[197px]">
           <Icon src="/icons/logo-footer.svg" width={163} height={36.8} label={site.brand} />
@@ -73,7 +96,7 @@ export function Footer({ site }: { site: SiteSettings }) {
             <p className="font-angie text-[14px] font-bold">{f.menuHeading}</p>
             <ul className="mt-3 flex flex-col gap-[11px] font-angie text-[14px]">
               {f.menuLinks.map((l) => (
-                <li key={l.label}><Link href={l.href}>{l.label}</Link></li>
+                <li key={l.label}><Link href={l.href} className="link-line">{l.label}</Link></li>
               ))}
             </ul>
           </div>
@@ -81,7 +104,7 @@ export function Footer({ site }: { site: SiteSettings }) {
             <p className="font-angie text-[14px] font-bold">{f.followHeading}</p>
             <ul className="mt-3 t-footer">
               {f.socialLinks.map((l) => (
-                <li key={l.label}><a href={l.href} target="_blank" rel="noreferrer">{l.label}</a></li>
+                <li key={l.label}><a href={l.href} target="_blank" rel="noreferrer" className="link-line">{l.label}</a></li>
               ))}
             </ul>
           </div>
@@ -92,7 +115,10 @@ export function Footer({ site }: { site: SiteSettings }) {
           </Link>
           <span className="text-cream"><Icon src="/icons/star-footer.svg" width={57} height={47} /></span>
         </div>
-        <p className="font-angie text-[14px]">{f.copyright}</p>
+        <div className="flex flex-col gap-2">
+          <p className="font-angie text-[14px]">{f.copyright}</p>
+          <Credit credit={f.credit} className="text-white/70" />
+        </div>
       </div>
     </footer>
   );
