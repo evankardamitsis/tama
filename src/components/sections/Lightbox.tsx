@@ -9,7 +9,17 @@ import type { GalleryItem } from "@/content/types";
 
 /* ------------------------------- Lightbox ------------------------------- */
 
-export function Lightbox({ items, index, onClose, onStep }: { items: GalleryItem[]; index: number | null; onClose: () => void; onStep: (d: 1 | -1) => void }) {
+export function Lightbox({
+  items,
+  index,
+  onClose,
+  onStep,
+}: {
+  items: GalleryItem[];
+  index: number | null;
+  onClose: () => void;
+  onStep: (d: 1 | -1) => void;
+}) {
   const reduce = useReducedMotion();
   useEffect(() => {
     if (index === null) return;
@@ -52,12 +62,32 @@ export function Lightbox({ items, index, onClose, onStep }: { items: GalleryItem
             <Icon src="/icons/close.svg" width={18} height={19} />
           </button>
 
-          <button type="button" aria-label="Previous" onClick={(e) => { e.stopPropagation(); onStep(-1); }} className="absolute left-[8px] top-1/2 hidden -translate-y-1/2 p-4 font-angie text-[26px] transition-opacity duration-300 hover:opacity-60 lg:block">
-            ←
-          </button>
-          <button type="button" aria-label="Next" onClick={(e) => { e.stopPropagation(); onStep(1); }} className="absolute right-[8px] top-1/2 hidden -translate-y-1/2 p-4 font-angie text-[26px] transition-opacity duration-300 hover:opacity-60 lg:block">
-            →
-          </button>
+          {items.length > 1 && (
+            <>
+              <button
+                type="button"
+                aria-label="Previous"
+                onClick={(e) => {
+                  e.stopPropagation();
+                  onStep(-1);
+                }}
+                className="absolute left-[8px] top-1/2 hidden -translate-y-1/2 p-4 font-angie text-[26px] transition-opacity duration-300 hover:opacity-60 lg:block"
+              >
+                ←
+              </button>
+              <button
+                type="button"
+                aria-label="Next"
+                onClick={(e) => {
+                  e.stopPropagation();
+                  onStep(1);
+                }}
+                className="absolute right-[8px] top-1/2 hidden -translate-y-1/2 p-4 font-angie text-[26px] transition-opacity duration-300 hover:opacity-60 lg:block"
+              >
+                →
+              </button>
+            </>
+          )}
 
           <motion.figure
             key={index}
@@ -87,15 +117,20 @@ export function Lightbox({ items, index, onClose, onStep }: { items: GalleryItem
                 className="max-h-[80vh] max-w-full"
               />
             )}
-            {item.caption && <figcaption className="mt-[14px] t-body text-white/80">{item.caption}</figcaption>}
+            {item.caption && (
+              <figcaption className="mt-[14px] t-body text-white/80">
+                {item.caption}
+              </figcaption>
+            )}
           </motion.figure>
 
-          <p className="absolute bottom-[20px] left-1/2 -translate-x-1/2 font-angie text-[12px] text-white/70">
-            {index! + 1} / {items.length}
-          </p>
+          {items.length > 1 && (
+            <p className="absolute bottom-[20px] left-1/2 -translate-x-1/2 font-angie text-[12px] text-white/70">
+              {index! + 1} / {items.length}
+            </p>
+          )}
         </motion.div>
       )}
     </AnimatePresence>
   );
 }
-

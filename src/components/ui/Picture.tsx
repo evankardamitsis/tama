@@ -21,6 +21,8 @@ type Props = {
   priority?: boolean;
   /** Slow zoom on hover (or when a parent `.group` is hovered). */
   zoom?: boolean;
+  /** next/image quality tier (must be listed in next.config images.qualities). */
+  quality?: 75 | 90;
 };
 
 /**
@@ -28,7 +30,7 @@ type Props = {
  * placed with the exact percentage offsets from the design; otherwise it
  * covers the box.
  */
-export function Picture({ image, className = "", style, sizes = "100vw", priority, zoom }: Props) {
+export function Picture({ image, className = "", style, sizes = "100vw", priority, zoom, quality }: Props) {
   const { crop } = image;
   // Callers may position the box themselves (e.g. `absolute inset-0`).
   const position = /\babsolute\b/.test(className) ? "" : "relative";
@@ -43,6 +45,7 @@ export function Picture({ image, className = "", style, sizes = "100vw", priorit
           height={image.height}
           sizes={sizes}
           priority={priority}
+          quality={quality}
           style={{
             position: "absolute",
             width: `${crop.width}%`,
@@ -59,6 +62,7 @@ export function Picture({ image, className = "", style, sizes = "100vw", priorit
           fill
           sizes={sizes}
           priority={priority}
+          quality={quality}
           className={image.fit === "contain" ? "object-contain" : "object-cover"}
           style={image.position ? { objectPosition: image.position } : undefined}
         />

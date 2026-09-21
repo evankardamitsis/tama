@@ -2,7 +2,7 @@ import type { VillaLayoutPage } from "./types";
 
 export const villaLayout: VillaLayoutPage = {
   hero: {
-    image: { src: "/images/layout-hero-aerial.jpg", alt: "Aerial view of Villa Tama and its pool", width: 721, height: 1283 },
+    image: { src: "/images/aerial-golden-hour.jpg", alt: "Aerial view of Villa Tama and its pool at golden hour", width: 2160, height: 3840, position: "50% 52%" },
   },
   intro: {
     eyebrow: "FACILITIES",

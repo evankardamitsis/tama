@@ -56,6 +56,10 @@ export type Hero = {
   image: ImageAsset;
   /** Portrait alternative used below the sm breakpoint (art direction). */
   mobileImage?: ImageAsset;
+  /** Optional background video (muted, looping). `image` is the poster. */
+  video?: { src: string; mobileSrc?: string };
+  /** Bottom-right link that opens the full film in the lightbox. */
+  fullVideo?: { label: string; item: Extract<GalleryItem, { type: "video" }> };
   showLogo?: boolean;
 };
 
@@ -68,6 +72,28 @@ export type TextBlock = {
 };
 
 export type BulletGroup = { heading?: string; items: string[] };
+
+/* ------------------------------ Gallery --------------------------------- */
+
+export type VideoAsset = {
+  src: string;
+  /** Poster frame shown until hover / play. */
+  poster: ImageAsset;
+  /** Optional WebM alternative for smaller files. */
+  webm?: string;
+};
+
+export type GalleryItem =
+  | { type: "image"; image: ImageAsset; caption?: string }
+  | { type: "video"; video: VideoAsset; caption?: string };
+
+export type GalleryPage = {
+  hero: Hero;
+  intro: TextBlock;
+  /** Shown alone, full width, above the grid. */
+  featured?: GalleryItem;
+  items: GalleryItem[];
+};
 
 /* ------------------------------ Home ------------------------------------ */
 
@@ -91,7 +117,8 @@ export type HomePage = {
   gallery: {
     eyebrow: string;
     heading: string;
-    images: ImageAsset[];
+    /** Seven slots on desktop (Figma collage); photos or reels. */
+    items: GalleryItem[];
     cta: Link;
   };
   features: FeatureColumn[];
@@ -138,26 +165,6 @@ export type ServicesPage = {
   intro: TextBlock;
   images: [ImageAsset, ImageAsset];
   columns: [BulletGroup, BulletGroup];
-};
-
-/* ------------------------------ Gallery --------------------------------- */
-
-export type VideoAsset = {
-  src: string;
-  /** Poster frame shown until hover / play. */
-  poster: ImageAsset;
-  /** Optional WebM alternative for smaller files. */
-  webm?: string;
-};
-
-export type GalleryItem =
-  | { type: "image"; image: ImageAsset; caption?: string }
-  | { type: "video"; video: VideoAsset; caption?: string };
-
-export type GalleryPage = {
-  hero: Hero;
-  intro: TextBlock;
-  items: GalleryItem[];
 };
 
 /* ------------------------------- About ---------------------------------- */

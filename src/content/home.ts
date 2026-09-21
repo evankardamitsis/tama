@@ -4,6 +4,11 @@ export const home: HomePage = {
   hero: {
     image: { src: "/images/home-hero.jpg", alt: "Guests at the edge of the heated pool overlooking the Aegean", width: 2400, height: 1600, position: "27% 76%" },
     mobileImage: { src: "/images/card-pool.jpg", alt: "Guests by the heated pool at sunset", width: 1600, height: 2400, position: "50% 40%" },
+    video: { src: "/videos/hero-loop.mp4", mobileSrc: "/videos/hero-loop-mobile.mp4" },
+    fullVideo: {
+      label: "Watch the full film",
+      item: { type: "video", video: { src: "/videos/villa-film.mp4", poster: { src: "/images/posters/villa-film.jpg", alt: "Beachfront Villa Mykonos — the film", width: 1920, height: 1080 } }, caption: "Beachfront Villa Mykonos" },
+    },
     showLogo: true,
   },
   description: {
@@ -29,14 +34,14 @@ export const home: HomePage = {
   gallery: {
     eyebrow: "GALLERY",
     heading: "A Sense of Place",
-    images: [
-      { src: "/images/home-hero.jpg", alt: "Pool terrace with sunbeds", width: 2400, height: 1600 },
-      { src: "/images/gallery-sunbeds.jpg", alt: "Deck chairs above the sea", width: 1600, height: 2400, crop: { width: 100, height: 105.76, left: 0, top: -0.03 } },
-      { src: "/images/gallery-arch.jpg", alt: "Guest resting in a whitewashed arch", width: 1600, height: 2400 },
-      { src: "/images/gallery-fruit.jpg", alt: "Fresh fruit platters", width: 1600, height: 2400, crop: { width: 98.71, height: 100, left: 1.2, top: 0.05 } },
-      { src: "/images/gallery-beach-woman.jpg", alt: "Guest walking on the beach", width: 1600, height: 2400 },
-      { src: "/images/gallery-villa-exterior.jpg", alt: "The villa seen from the garden", width: 1600, height: 2400, crop: { width: 100, height: 249.72, left: 0, top: -15.09 } },
-      { src: "/images/gallery-pool-sea.jpg", alt: "Pool and the Aegean at dusk", width: 2400, height: 1600 },
+    items: [
+      { type: "image", image: { src: "/images/home-hero.jpg", alt: "Pool terrace with sunbeds", width: 2400, height: 1600 } },
+      { type: "video", video: { src: "/videos/reel-13-single-drone-1.mp4", poster: { src: "/images/posters/reel-13-single-drone-1.jpg", alt: "Drone flight over the villa", width: 1080, height: 1920 } }, caption: "Drone flight over the villa" },
+      { type: "image", image: { src: "/images/gallery-arch.jpg", alt: "Guest resting in a whitewashed arch", width: 1600, height: 2400 } },
+      { type: "video", video: { src: "/videos/reel-2-pool.mp4", poster: { src: "/images/posters/reel-2-pool.jpg", alt: "The heated pool", width: 1080, height: 1920 } }, caption: "The heated pool" },
+      { type: "image", image: { src: "/images/gallery-beach-woman.jpg", alt: "Guest walking on the beach", width: 1600, height: 2400 } },
+      { type: "image", image: { src: "/images/gallery-villa-exterior.jpg", alt: "The villa seen from the garden", width: 1600, height: 2400, crop: { width: 100, height: 249.72, left: 0, top: -15.09 } } },
+      { type: "video", video: { src: "/videos/reel-7-beach-1.mp4", poster: { src: "/images/posters/reel-7-beach-1.jpg", alt: "The private beach", width: 1080, height: 1920 } }, caption: "The private beach" },
     ],
     cta: { label: "View all photos", href: "/gallery" },
   },
