@@ -64,8 +64,14 @@ Until then the site falls back to Gill Sans / system sans.
 - ~~Mykonos map illustration~~
   (done — `public/images/map_image.png`).
 
-## Phase 2 — Contentful
+## Status
 
-1. Create content types mirroring `src/content/types.ts` (SiteSettings, HomePage, AboutPage, FeaturesPage, EquipmentPage, VillaLayoutPage, ServicesPage).
+- Client review: Vercel preview of `main` (static draft; texts and media from `src/content`).
+- On client sign-off → Phase 2 below.
+
+## Phase 2 — Contentful (open task, after client confirmation)
+
+1. Create content types mirroring `src/content/types.ts` (SiteSettings, HomePage, AboutPage, FeaturesPage, EquipmentPage, VillaLayoutPage, ServicesPage, GalleryPage).
 2. `npm i contentful` and implement the getters in `src/lib/content.ts`.
-3. Nothing in `components/` or `app/` needs to change.
+3. **Move videos out of git into Contentful assets** (`public/videos`, ~200 MB; `villa-film.mp4` is 62 MB and over GitHub's 50 MB warning). Every `video.src` / `hero.video` is already a plain URL, so this is a content change, not a code change. Originals live in `../tama-media-originals/videos` (4K HEVC).
+4. Nothing in `components/` or `app/` needs to change.
