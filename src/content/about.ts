@@ -3,6 +3,7 @@ import type { AboutPage } from "./types";
 export const about: AboutPage = {
   hero: {
     image: { src: "/images/about-hero.jpg", alt: "Silhouette at the window at sunset", width: 2400, height: 1600, position: "50% 7%" },
+    mobileImage: { src: "/images/gallery-beach-woman.jpg", alt: "Guest walking on the beach", width: 1600, height: 2400, position: "50% 50%" },
   },
   concept: {
     eyebrow: "CONCEPT",

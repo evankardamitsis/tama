@@ -15,10 +15,12 @@ type Props = { hero: HeroT; size?: "home" | "page"; brand?: string };
  */
 export function Hero({ hero, size = "page", brand = "TAMA" }: Props) {
   const reduce = useReducedMotion();
+  // Phones: full viewport height (svh ignores the browser chrome jump).
+  // From sm the Figma proportions take over.
   const h =
     size === "home"
-      ? "h-[120vw] sm:h-[73.06vw] max-h-[1052px]"
-      : "h-[72vw] sm:h-[43.05vw] max-h-[620px]";
+      ? "h-[100svh] sm:h-[73.06vw] sm:max-h-[1052px]"
+      : "h-[100svh] sm:h-[43.05vw] sm:max-h-[620px]";
   return (
     <section className={`relative w-full overflow-hidden ${h}`}>
       <motion.div
@@ -27,7 +29,14 @@ export function Hero({ hero, size = "page", brand = "TAMA" }: Props) {
         animate={{ scale: 1, opacity: 1 }}
         transition={{ duration: DUR.slow + 0.4, ease: EASE }}
       >
-        <Picture image={hero.image} className="absolute inset-0" sizes="100vw" priority />
+        {hero.mobileImage ? (
+          <>
+            <Picture image={hero.mobileImage} className="absolute inset-0 sm:hidden" sizes="100vw" priority />
+            <Picture image={hero.image} className="absolute inset-0 hidden sm:block" sizes="100vw" priority />
+          </>
+        ) : (
+          <Picture image={hero.image} className="absolute inset-0" sizes="100vw" priority />
+        )}
       </motion.div>
       {hero.showLogo && (
         <motion.div

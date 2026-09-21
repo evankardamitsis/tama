@@ -3,6 +3,7 @@ import type { EquipmentPage } from "./types";
 export const equipment: EquipmentPage = {
   hero: {
     image: { src: "/images/home-hero.jpg", alt: "Guests by the pool overlooking the sea", width: 2400, height: 1600, position: "60% 85%" },
+    mobileImage: { src: "/images/card-pool.jpg", alt: "Guests by the heated pool at sunset", width: 1600, height: 2400, position: "50% 50%" },
   },
   intro: { eyebrow: "FACILITIES", heading: "Amenities & Equipment" },
   groups: [

@@ -3,6 +3,7 @@ import type { HomePage } from "./types";
 export const home: HomePage = {
   hero: {
     image: { src: "/images/home-hero.jpg", alt: "Guests at the edge of the heated pool overlooking the Aegean", width: 2400, height: 1600, position: "27% 76%" },
+    mobileImage: { src: "/images/card-pool.jpg", alt: "Guests by the heated pool at sunset", width: 1600, height: 2400, position: "50% 40%" },
     showLogo: true,
   },
   description: {

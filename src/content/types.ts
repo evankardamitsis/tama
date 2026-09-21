@@ -52,7 +52,12 @@ export type SiteSettings = {
   facilitiesHeading: string;
 };
 
-export type Hero = { image: ImageAsset; showLogo?: boolean };
+export type Hero = {
+  image: ImageAsset;
+  /** Portrait alternative used below the sm breakpoint (art direction). */
+  mobileImage?: ImageAsset;
+  showLogo?: boolean;
+};
 
 export type TextBlock = {
   eyebrow?: string;

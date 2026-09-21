@@ -64,8 +64,8 @@ export function Navbar({ site }: { site: SiteSettings }) {
                 {l.label}
               </Link>
             ))}
-            <a href={`tel:${site.contact.phone}`} aria-label="Call us" className="flex transition-opacity duration-300 hover:opacity-60">
-              <Icon src="/icons/phone.svg" width={14} height={14} />
+            <a href={site.contact.whatsapp} target="_blank" rel="noreferrer" aria-label="Chat with us on WhatsApp" className="flex transition-opacity duration-300 hover:opacity-60">
+              <Icon src="/icons/whatsapp.svg" width={15} height={15} />
             </a>
             <a href={`mailto:${site.contact.email}`} aria-label="Email us" className="flex transition-opacity duration-300 hover:opacity-60">
               <Icon src="/icons/email.svg" width={17} height={12} />

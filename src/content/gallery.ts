@@ -9,6 +9,7 @@ import type { GalleryPage } from "./types";
 export const gallery: GalleryPage = {
   hero: {
     image: { src: "/images/gallery-pool-sea.jpg", alt: "Pool and the Aegean at dusk", width: 2400, height: 1600, position: "50% 60%" },
+    mobileImage: { src: "/images/gallery-sunbeds.jpg", alt: "Deck chairs above the sea", width: 1600, height: 2400, position: "50% 50%" },
   },
   intro: { eyebrow: "GALLERY", heading: "A Sense of Place" },
   items: [
