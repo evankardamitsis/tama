@@ -39,3 +39,10 @@ yarn-error.log*
 # typescript
 *.tsbuildinfo
 next-env.d.ts
+
+# raw media — originals live in ../tama-media-originals, never in the repo
+*.mov
+*.MOV
+*.mp4.orig
+public/videos/originals/
+public/images/originals/
