@@ -1,4 +1,9 @@
+"use client";
+
+import { useCallback, useState } from "react";
 import { Picture, coverFallback } from "@/components/ui/Picture";
+import { Lightbox } from "./Lightbox";
+import type { GalleryItem } from "@/content/types";
 import { Button } from "@/components/ui/Button";
 import { Reveal } from "@/components/motion/Reveal";
 import type { HomePage } from "@/content/types";
@@ -18,6 +23,14 @@ const RECTS = [
 const pct = (n: number, of: number) => `${((n / of) * 100).toFixed(4)}%`;
 
 export function Gallery({ gallery }: { gallery: HomePage["gallery"] }) {
+  const [open, setOpen] = useState<number | null>(null);
+  const close = useCallback(() => setOpen(null), []);
+  const items: GalleryItem[] = gallery.images.map((image) => ({ type: "image", image: coverFallback(image) }));
+  const step = useCallback(
+    (d: 1 | -1) => setOpen((i) => (i === null ? null : (i + d + items.length) % items.length)),
+    [items.length],
+  );
+
   return (
     <section id="gallery" className="page-container scroll-mt-[54px]">
       <Reveal className="flex flex-col gap-[8px]">
@@ -41,7 +54,9 @@ export function Gallery({ gallery }: { gallery: HomePage["gallery"] }) {
                 height: pct(r.h, CANVAS.h),
               }}
             >
-              <Picture image={img} zoom className="h-full w-full" sizes="(min-width: 1440px) 740px, 55vw" />
+              <button type="button" onClick={() => setOpen(i)} aria-label={img.alt} className="block h-full w-full">
+                <Picture image={img} zoom className="h-full w-full" sizes="(min-width: 1440px) 740px, 55vw" />
+              </button>
             </Reveal>
           );
         })}
@@ -53,7 +68,9 @@ export function Gallery({ gallery }: { gallery: HomePage["gallery"] }) {
           const wide = i % 3 === 0;
           return (
             <Reveal key={img.src} delay={(i % 2) * 0.08} className={wide ? "col-span-2" : ""}>
-              <Picture image={coverFallback(img)} zoom className={wide ? "aspect-[3/2] w-full" : "aspect-[3/4] w-full"} sizes={wide ? "100vw" : "50vw"} />
+              <button type="button" onClick={() => setOpen(i)} aria-label={img.alt} className="block w-full">
+                <Picture image={coverFallback(img)} zoom className={wide ? "aspect-[3/2] w-full" : "aspect-[3/4] w-full"} sizes={wide ? "100vw" : "50vw"} />
+              </button>
             </Reveal>
           );
         })}
@@ -64,6 +81,7 @@ export function Gallery({ gallery }: { gallery: HomePage["gallery"] }) {
           {gallery.cta.label}
         </Button>
       </Reveal>
+      <Lightbox items={items} index={open} onClose={close} onStep={step} />
     </section>
   );
 }

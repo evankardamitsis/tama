@@ -135,6 +135,26 @@ export type ServicesPage = {
   columns: [BulletGroup, BulletGroup];
 };
 
+/* ------------------------------ Gallery --------------------------------- */
+
+export type VideoAsset = {
+  src: string;
+  /** Poster frame shown until hover / play. */
+  poster: ImageAsset;
+  /** Optional WebM alternative for smaller files. */
+  webm?: string;
+};
+
+export type GalleryItem =
+  | { type: "image"; image: ImageAsset; caption?: string }
+  | { type: "video"; video: VideoAsset; caption?: string };
+
+export type GalleryPage = {
+  hero: Hero;
+  intro: TextBlock;
+  items: GalleryItem[];
+};
+
 /* ------------------------------- About ---------------------------------- */
 
 export type TeamMember = {

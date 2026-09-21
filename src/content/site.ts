@@ -5,13 +5,13 @@ export const site: SiteSettings = {
   nav: {
     left: [
       { label: "ABOUT", href: "/about" },
-      { label: "GALLERY", href: "/#gallery" },
+      { label: "GALLERY", href: "/gallery" },
     ],
     right: [{ label: "CONTACT", href: "/#inquiries" }],
   },
   menu: [
     { label: "ABOUT", href: "/about" },
-    { label: "GALLERY", href: "/#gallery" },
+    { label: "GALLERY", href: "/gallery" },
     { label: "FACILITIES", href: "/facilities/features" },
     { label: "LOCATION", href: "/#location" },
     { label: "INQUIRIES", href: "/#inquiries" },
@@ -32,7 +32,7 @@ export const site: SiteSettings = {
     menuHeading: "MENU",
     menuLinks: [
       { label: "ABOUT", href: "/about" },
-      { label: "GALLERY", href: "/#gallery" },
+      { label: "GALLERY", href: "/gallery" },
       { label: "FACILITIES", href: "/facilities/features" },
     ],
     followHeading: "FOLLOW US",

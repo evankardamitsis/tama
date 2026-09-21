@@ -12,10 +12,12 @@ import { features } from "@/content/features";
 import { equipment } from "@/content/equipment";
 import { villaLayout } from "@/content/villaLayout";
 import { services } from "@/content/services";
+import { gallery } from "@/content/gallery";
 import type {
   AboutPage,
   EquipmentPage,
   FeaturesPage,
+  GalleryPage,
   HomePage,
   ServicesPage,
   SiteSettings,
@@ -42,4 +44,7 @@ export async function getVillaLayoutPage(): Promise<VillaLayoutPage> {
 }
 export async function getServicesPage(): Promise<ServicesPage> {
   return services;
+}
+export async function getGalleryPage(): Promise<GalleryPage> {
+  return gallery;
 }

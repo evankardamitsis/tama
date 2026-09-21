@@ -37,7 +37,7 @@ export const home: HomePage = {
       { src: "/images/gallery-villa-exterior.jpg", alt: "The villa seen from the garden", width: 1600, height: 2400, crop: { width: 100, height: 249.72, left: 0, top: -15.09 } },
       { src: "/images/gallery-pool-sea.jpg", alt: "Pool and the Aegean at dusk", width: 2400, height: 1600 },
     ],
-    cta: { label: "View all photos", href: "/#gallery" },
+    cta: { label: "View all photos", href: "/gallery" },
   },
   features: [
     {
