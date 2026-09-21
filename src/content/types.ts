@@ -1,0 +1,154 @@
+/**
+ * Content model. Every page is a plain typed object today; when Contentful
+ * is connected, `lib/content.ts` will fetch entries and map them onto these
+ * same shapes so components never change.
+ */
+
+export type ImageAsset = {
+  src: string;
+  alt: string;
+  width: number;
+  height: number;
+  /** Optional Figma crop (percentages of the container). Reproduces the
+   *  exact framing from the design. */
+  crop?: { width: number; height: number; left: number; top: number };
+};
+
+export type Link = { label: string; href: string; external?: boolean };
+
+export type FacilityCardKey = "features" | "equipment" | "villa-layout" | "services";
+
+export type FacilityCard = {
+  key: FacilityCardKey;
+  title: string;
+  cta: string;
+  href: string;
+  image: ImageAsset;
+  /** Background colour token */
+  color: "terracotta" | "navy" | "olive" | "bark";
+};
+
+export type SiteSettings = {
+  brand: string;
+  nav: { left: Link[]; right: Link[] };
+  menu: Link[];
+  contact: { phone: string; email: string; whatsapp: string };
+  footer: {
+    contactHeading: string;
+    contactLines: string[];
+    whatsappLine: string;
+    menuHeading: string;
+    menuLinks: Link[];
+    followHeading: string;
+    socialLinks: Link[];
+    copyright: string;
+  };
+  facilityCards: FacilityCard[];
+  facilitiesHeading: string;
+};
+
+export type Hero = { image: ImageAsset; showLogo?: boolean };
+
+export type TextBlock = {
+  eyebrow?: string;
+  heading?: string;
+  /** Paragraphs; each string may contain "\n" for hard line breaks */
+  paragraphs?: string[];
+  link?: Link;
+};
+
+export type BulletGroup = { heading?: string; items: string[] };
+
+/* ------------------------------ Home ------------------------------------ */
+
+export type FeatureColumn = {
+  eyebrow: string;
+  heading: string;
+  body: string;
+  link: Link;
+  image: ImageAsset;
+};
+
+export type HomePage = {
+  hero: Hero;
+  description: {
+    eyebrow: string;
+    heading: string;
+    stats: string;
+    body: string[];
+  };
+  team: TextBlock & { image: ImageAsset };
+  gallery: {
+    eyebrow: string;
+    heading: string;
+    images: ImageAsset[];
+    cta: Link;
+  };
+  features: FeatureColumn[];
+  location: TextBlock & { distances: string[]; map?: ImageAsset };
+  inquiries: {
+    eyebrow: string;
+    heading: string;
+    body: string;
+    image: ImageAsset;
+    fields: { name: string; type: "text" | "email" | "tel" | "textarea"; label: string }[];
+    submit: string;
+  };
+};
+
+/* --------------------------- Facility pages ----------------------------- */
+
+export type FeaturesPage = {
+  hero: Hero;
+  intro: TextBlock;
+  images: [ImageAsset, ImageAsset];
+  columns: [BulletGroup, BulletGroup];
+};
+
+export type EquipmentPage = {
+  hero: Hero;
+  intro: TextBlock;
+  groups: BulletGroup[];
+  images: { small: [ImageAsset, ImageAsset]; wide: ImageAsset };
+};
+
+export type AccordionItem = {
+  title: string;
+  sections: BulletGroup[];
+};
+
+export type VillaLayoutPage = {
+  hero: Hero;
+  intro: TextBlock;
+  accordions: { left: AccordionItem[]; right: AccordionItem[] };
+};
+
+export type ServicesPage = {
+  hero: Hero;
+  intro: TextBlock;
+  images: [ImageAsset, ImageAsset];
+  columns: [BulletGroup, BulletGroup];
+};
+
+/* ------------------------------- About ---------------------------------- */
+
+export type TeamMember = {
+  role: string;
+  name: string;
+  bio: string;
+  image: ImageAsset;
+};
+
+export type AboutPage = {
+  hero: Hero;
+  concept: TextBlock;
+  house: TextBlock;
+  conceptImages: [ImageAsset, ImageAsset];
+  quiet: TextBlock;
+  culinary: TextBlock;
+  quietImage: ImageAsset;
+  people: TextBlock;
+  peopleImages: [ImageAsset, ImageAsset];
+  teamHeading: string;
+  team: TeamMember[];
+};

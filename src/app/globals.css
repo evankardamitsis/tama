@@ -1,0 +1,116 @@
+@import "tailwindcss";
+
+/* ---------------------------------------------------------------------------
+ * Brand fonts
+ * Angie Sans Std is a licensed typeface. Drop the font files into
+ * /public/fonts (see README) — until then the fallback stack is used.
+ * ------------------------------------------------------------------------- */
+@font-face {
+  font-family: "Angie Sans Std";
+  src: url("/fonts/AngieSansStd-Regular.woff2") format("woff2"),
+       url("/fonts/AngieSansStd-Regular.otf") format("opentype");
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: "Angie Sans Std";
+  src: url("/fonts/AngieSansStd-Bold.woff2") format("woff2"),
+       url("/fonts/AngieSansStd-Bold.otf") format("opentype");
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
+
+/* ---------------------------------------------------------------------------
+ * Design tokens (from Figma "Tama Webside 2026")
+ * ------------------------------------------------------------------------- */
+@theme {
+  --color-sand: #f3eee7;
+  --color-bark: #332b25;
+  --color-terracotta: #b06734;
+  --color-navy: #1d212b;
+  --color-olive: #8d8f6b;
+  --color-cream: #fefaf0;
+  --color-ink: #000000;
+
+  --font-angie: "Angie Sans Std", "Gill Sans", "Gill Sans MT", "Optima", ui-sans-serif, system-ui, sans-serif;
+  --font-inter: var(--font-inter), ui-sans-serif, system-ui, sans-serif;
+
+  --breakpoint-xl: 1440px;
+}
+
+/* Type ramp — names mirror the Figma text styles */
+@utility t-h1 {
+  font-family: var(--font-angie);
+  font-weight: 400;
+  font-size: 34px;
+  line-height: normal;
+}
+@utility t-h2 {
+  font-family: var(--font-angie);
+  font-weight: 400;
+  font-size: 26px;
+  line-height: normal;
+}
+@utility t-h3 {
+  font-family: var(--font-angie);
+  font-weight: 400;
+  font-size: 22px;
+  line-height: normal;
+}
+@utility t-body {
+  font-family: var(--font-angie);
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 1.0006;
+}
+@utility t-eyebrow {
+  font-family: var(--font-angie);
+  font-weight: 700;
+  font-size: 16px;
+  line-height: normal;
+}
+@utility t-subline {
+  font-family: var(--font-angie);
+  font-weight: 700;
+  font-size: 12px;
+  line-height: normal;
+}
+@utility t-nav {
+  font-family: var(--font-inter);
+  font-weight: 400;
+  font-size: 14px;
+  line-height: normal;
+}
+@utility t-footer {
+  font-family: var(--font-angie);
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 25px;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background: var(--color-sand);
+  color: var(--color-ink);
+  font-family: var(--font-angie);
+  -webkit-font-smoothing: antialiased;
+}
+
+/* Full-page column: 1440 design canvas, horizontally centred */
+@utility page-container {
+  width: 100%;
+  max-width: 1440px;
+  margin-inline: auto;
+  padding-inline: 80px;
+}
+@utility page-rule {
+  width: 100%;
+  max-width: 1408px;
+  margin-inline: auto;
+  border-top: 1px solid var(--color-bark);
+}
