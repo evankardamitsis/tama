@@ -130,8 +130,17 @@ export const home: HomePage = {
     note: "Journey times may vary according to seasonal traffic.",
     mapsLink: { label: "View on Google Maps", href: "https://maps.app.goo.gl/L58YZvrQrqbMtvp39", external: true },
     // The illustrated map is replaced by an aerial film; Michalis is
-    // supplying it. This drone reel stands in until then.
-    video: reel("reel-13-single-drone-1", "Aerial view of Tama and the Aleomandra coastline"),
+    // supplying the final edit. Until then this is a landscape band cut
+    // straight from the 4K drone master, so it stays sharp in a wide box —
+    // the vertical web reel would have to be upscaled to fill it.
+    video: {
+      type: "video",
+      video: {
+        src: "/videos/location-aerial.mp4",
+        poster: img("posters/location-aerial", "The pool and pergola above the bay, seen from the air", 1920, 1080),
+      },
+      caption: "Tama from the air",
+    },
     map: { src: "/images/map_image.png", alt: "Map of Mykonos showing the location of Villa Tama in Aleomandra", width: 1162, height: 924, fit: "contain" },
   },
 

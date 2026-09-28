@@ -114,7 +114,9 @@ export default async function HomePage() {
         </Reveal>
         <Reveal delay={0.2} className="w-full lg:ml-[4.9%] lg:w-[45.4%]">
           {location.video ? (
-            <div className="aspect-[4/3] w-full lg:aspect-[581/462]">
+            /* 16:9 so the aerial plays at its native shape — the map's
+               581 × 462 box would crop the sides and upscale it. */
+            <div className="aspect-[16/9] w-full lg:mt-[24px]">
               <HoverVideo item={location.video} autoPlay sizes="(min-width: 1024px) 581px, 100vw" />
             </div>
           ) : (
