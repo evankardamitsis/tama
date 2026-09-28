@@ -17,7 +17,7 @@ import { getHomePage, getSiteSettings } from "@/lib/content";
 
 export default async function HomePage() {
   const [page, site] = await Promise.all([getHomePage(), getSiteSettings()]);
-  const { description, film, team, property, days, location, enquiries, senseOfPlace } = page;
+  const { description, film, team, property, location, enquiries, senseOfPlace } = page;
 
   return (
     <main>
@@ -91,7 +91,7 @@ export default async function HomePage() {
       <Rule className="mt-[32px] lg:mt-[64px]" />
 
       {/* DAYS AT TAMA — each card now leads to its own page. */}
-      <DayCards heading={days.heading} cards={days.cards} className="mt-[46px] lg:mt-[91px]" />
+      <DayCards heading={site.daysHeading} cards={site.dayCards} className="mt-[46px] lg:mt-[91px]" />
 
       <Rule className="mt-[32px] lg:mt-[64px]" />
 

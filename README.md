@@ -28,7 +28,10 @@ npm run build      # production build (all routes are static)
 | `/privacy` | Privacy Notice (placeholder — final text pending) |
 
 `PRESS`, `LOCATION` and `ENQUIRE` in the menu point at anchors on the home page
-(`#press`, `#location`, `#enquiries`). The old `/facilities/*` URLs 301-redirect
+(`#press`, `#location`, `#enquiries`). `DAYS AT TAMA` is deliberately absent from
+the burger menu (Chris: "No need I guess to have this in the burger menu") — the
+three pages are reached from the homepage cards, the strip on each of those
+pages, and the footer. The old `/facilities/*` URLs 301-redirect
 to their `/the-villa/*` equivalents (`next.config.ts`).
 
 ### Home page order

@@ -83,35 +83,6 @@ export const home: HomePage = {
     cta: { label: "View the Full Gallery", href: "/gallery#property" },
   },
 
-  days: {
-    heading: "DAYS AT TAMA",
-    cards: [
-      {
-        key: "pool-beach",
-        eyebrow: "POOL & BEACH",
-        heading: "From Morning Light to Sunset",
-        body: "Two terraces above the Aegean, a heated 7 × 15 m pool, and a garden path down to the sand.",
-        href: "/days-at-tama/pool-beach",
-        media: reel("reel-8-beach-2", "The private beach below the villa"),
-      },
-      {
-        key: "dining",
-        eyebrow: "DINING",
-        heading: "At the Table",
-        body: "Greek and Mediterranean cooking alongside Asian flavours, planned with you before you arrive.",
-        href: "/days-at-tama/dining",
-        media: reel("reel-10-dinner", "Dinner served on the terrace at sunset"),
-      },
-      {
-        key: "wellness",
-        eyebrow: "WELLNESS & FITNESS",
-        heading: "Strength and Stillness",
-        body: "A Technogym-equipped fitness room, hammam and dedicated massage room, steps from the pool.",
-        href: "/days-at-tama/wellness",
-        media: reel("reel-3-massage", "The massage room"),
-      },
-    ],
-  },
 
   location: {
     eyebrow: "LOCATION",

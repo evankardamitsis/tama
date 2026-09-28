@@ -65,6 +65,8 @@ export type SiteSettings = {
   sectionLabel: string;
   exploreHeading: string;
   exploreCards: ExploreCard[];
+  daysHeading: string;
+  dayCards: DayCard[];
   galleryCta: Link;
 };
 
@@ -143,7 +145,6 @@ export type HomePage = {
   film: TextBlock & { cta: string; item: Extract<GalleryItem, { type: "video" }> };
   team: TextBlock & { image: ImageAsset };
   property: { eyebrow: string; heading: string; items: GalleryItem[]; cta: Link };
-  days: { heading: string; cards: DayCard[] };
   location: TextBlock & {
     distancesHeading: string;
     distances: string[];

@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { Hero } from "@/components/sections/Hero";
+import { DayNav } from "@/components/sections/DayNav";
 import { Carousel } from "@/components/sections/Carousel";
 import { HoverVideo } from "@/components/sections/HoverVideo";
 import { Reveal } from "@/components/motion/Reveal";
@@ -8,7 +9,7 @@ import { Picture } from "@/components/ui/Picture";
 import { Rule } from "@/components/ui/Rule";
 import { SectionHeading } from "@/components/ui/SectionHeading";
 import { Paragraphs } from "@/components/ui/Text";
-import { getWellnessPage } from "@/lib/content";
+import { getWellnessPage, getSiteSettings } from "@/lib/content";
 import type { GalleryItem } from "@/content/types";
 
 export const metadata: Metadata = { title: "Wellness & Fitness" };
@@ -30,11 +31,15 @@ function SectionMedia({ items }: { items: GalleryItem[] }) {
 }
 
 export default async function WellnessPage() {
-  const page = await getWellnessPage();
+  const [page, site] = await Promise.all([getWellnessPage(), getSiteSettings()]);
 
   return (
     <main>
       <Hero hero={page.hero} />
+
+      <DayNav heading={site.daysHeading} cards={site.dayCards} current="wellness" className="mt-[24px] lg:mt-[43px]" />
+
+      <Rule className="mt-[24px] lg:mt-[49px]" />
 
       {/* INTRO — text left, film right */}
       <section className="page-container mt-[28px] lg:mt-[56px] flex flex-col gap-8 lg:flex-row lg:gap-0">
