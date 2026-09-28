@@ -1,9 +1,20 @@
 import type { HomePage } from "./types";
 
+const img = (src: string, alt: string, width: number, height: number) => ({ src: `/images/${src}.jpg`, alt, width, height });
+const photo = (src: string, alt: string, width: number, height: number) =>
+  ({ type: "image" as const, image: img(src, alt, width, height) });
+const reel = (src: string, alt: string, caption?: string) => ({
+  type: "video" as const,
+  video: { src: `/videos/${src}.mp4`, poster: img(`posters/${src}`, alt, 1080, 1920) },
+  caption,
+});
+
 export const home: HomePage = {
   hero: {
     image: { src: "/images/home-hero.jpg", alt: "Guests at the edge of the heated pool overlooking the Aegean", width: 2400, height: 1600, position: "27% 76%" },
     mobileImage: { src: "/images/card-pool.jpg", alt: "Guests by the heated pool at sunset", width: 1600, height: 2400, position: "50% 40%" },
+    // Michalis is cutting a new hero film from the best sequences — swap
+    // `video` for it (and re-cut the mobile crop) when it arrives.
     video: { src: "/videos/hero-loop.mp4", mobileSrc: "/videos/hero-loop-mobile.mp4" },
     fullVideo: {
       label: "Watch the full film",
@@ -11,90 +22,156 @@ export const home: HomePage = {
     },
     showLogo: true,
   },
+
   description: {
-    eyebrow: "DESCRIPTION",
-    heading: "Private Cycladic\nbeachfront residence",
-    stats: "4.600 SQM / 7 Bedrooms / 14  people",
+    heading: "Private Cycladic\nbeachfront property",
+    facts: ["14 guests", "7 bedrooms", "Direct beach access", "Heated pool", "Fully serviced"],
     body: [
-      "Set above a secluded sandy beach, the property unfolds across 4,600 m², overlooking the Aegean Sea, the sacred islands of Delos and Rhenia, and the sunset.",
-      "Tama features seven double bedrooms, accommodating up to fourteen guests. The stay is complemented by an in-house chef, a wellness area with hammam, a fully equipped gym, and a private cinema room.",
+      "Set above a secluded sandy beach, the property unfolds across 4,600 m² of private grounds, overlooking the Aegean Sea, the sacred islands of Delos and Rhenia, and the sunset.",
+      "Tama offers 650 m² of interior space across seven double bedrooms, accommodating up to fourteen guests. The stay is complemented by an in-house chef, a wellness area with hammam, a fully equipped gym, and a private cinema room.",
       "Multiple outdoor lounge areas, a beach terrace just above the sand for sunset moments, and a large heated pool invite long, unhurried days outdoors.",
     ],
   },
+
+  /* Logos and article PDFs are still to come from Michalis, in black, for
+     B-Press. The section hides itself while `items` is empty. */
+  press: { heading: "As Seen In", items: [] },
+
+  film: {
+    eyebrow: "LIFE AT TAMA",
+    heading: "A Rhythm of Its Own",
+    paragraphs: [
+      "Life at Tama follows the rhythm of the sea. Mornings begin slowly, days move between the pool, shaded terraces and the beach below, while evenings unfold against the sunset over Delos and Rhenia.",
+      "This short film offers a glimpse of the house as it is meant to be lived.",
+    ],
+    cta: "Watch the film",
+    item: {
+      type: "video",
+      video: { src: "/videos/villa-film.mp4", poster: { src: "/images/posters/villa-film.jpg", alt: "Beachfront Villa Mykonos — the film", width: 1920, height: 1080 } },
+      caption: "Beachfront Villa Mykonos",
+    },
+  },
+
   team: {
     eyebrow: "PEOPLE",
     heading: "THE TEAM",
     paragraphs: [
-      "Behind every stay is a dedicated team, quietly present throughout the day to care for the villa, prepare each moment and ensure everything flows with ease.",
-      "From housekeeping and service to the garden, kitchen and daily villa management, each member of the Villa Tama team brings a sense of care, discretion and familiarity to the guest experience.",
+      "Behind every stay is a dedicated team, quietly present throughout the day to care for the villa and ensure everything flows with ease.",
+      "From the kitchen and housekeeping to service, the gardens and daily villa management, the Tama team brings warmth, discretion and a genuine familiarity with the house.",
     ],
     link: { label: "Meet the team", href: "/about#team" },
     image: { src: "/images/team-group.jpg", alt: "The Villa Tama team", width: 2400, height: 1600 },
   },
-  gallery: {
-    eyebrow: "GALLERY",
-    heading: "A Sense of Place",
+
+  property: {
+    eyebrow: "THE PROPERTY",
+    heading: "A Glimpse of Tama",
     items: [
-      { type: "image", image: { src: "/images/home-hero.jpg", alt: "Pool terrace with sunbeds", width: 2400, height: 1600 } },
-      { type: "video", video: { src: "/videos/reel-13-single-drone-1.mp4", poster: { src: "/images/posters/reel-13-single-drone-1.jpg", alt: "Drone flight over the villa", width: 1080, height: 1920 } }, caption: "Drone flight over the villa" },
-      { type: "image", image: { src: "/images/gallery-arch.jpg", alt: "Guest resting in a whitewashed arch", width: 1600, height: 2400 } },
-      { type: "video", video: { src: "/videos/reel-2-pool.mp4", poster: { src: "/images/posters/reel-2-pool.jpg", alt: "The heated pool", width: 1080, height: 1920 } }, caption: "The heated pool" },
-      { type: "image", image: { src: "/images/gallery-beach-woman.jpg", alt: "Guest walking on the beach", width: 1600, height: 2400 } },
-      { type: "image", image: { src: "/images/gallery-villa-exterior.jpg", alt: "The villa seen from the garden", width: 1600, height: 2400, crop: { width: 100, height: 249.72, left: 0, top: -15.09 } } },
-      { type: "video", video: { src: "/videos/reel-7-beach-1.mp4", poster: { src: "/images/posters/reel-7-beach-1.jpg", alt: "The private beach", width: 1080, height: 1920 } }, caption: "The private beach" },
+      photo("004-drone", "The property seen from the air, above the western shoreline", 1821, 1365),
+      photo("081-swimmingpool", "The heated pool stretching towards the Aegean", 2048, 1365),
+      photo("living-room", "The living and dining area open to the sea", 2048, 1536),
+      photo("026-masterbedroom-upperlevel", "The master bedroom on the upper level", 2048, 1365),
+      photo("upper-terrace", "The shaded dining terrace above the pool", 2048, 1536),
+      photo("110-privatebeach", "The sandy beach below the garden path", 2048, 1365),
+      photo("amenities-cinema", "The private indoor cinema", 2048, 1536),
+      photo("137-wellness", "The wellness area beside the pool", 2047, 1365),
+      photo("professional-kitchen", "The separate professional kitchen", 2048, 1536),
+      photo("106-terrace-privatebeachlevel", "The private terrace just above the sand", 2048, 1365),
+      photo("tama-91", "The house among dry-stone walls and low greenery", 3840, 2560),
+      photo("097-terrace-swimmingpool", "Sunbeds and lounge seating around the pool terrace", 2048, 1365),
     ],
-    cta: { label: "View all photos", href: "/gallery" },
+    cta: { label: "View the Full Gallery", href: "/gallery#property" },
   },
-  features: [
-    {
-      eyebrow: "POOL",
-      heading: "Morning Light to Sunset",
-      body: "A 7m x 15m heated pool stretches toward the Aegean, framed by dry-stone walls and open sky — made for long, unhurried days outdoors.",
-      link: { label: "Discover more", href: "/facilities/features" },
-      image: { src: "/images/card-pool.jpg", alt: "The heated pool at sunset", width: 1600, height: 2400 },
-    },
-    {
-      eyebrow: "DINING",
-      heading: "Fresh, Unfussy, Aegean",
-      body: "Seasonal produce, fresh fish, and simple Greek flavours, prepared by an in-house chef and served wherever the light is best.",
-      link: { label: "Discover more", href: "/facilities/services" },
-      image: { src: "/images/feature-dining.jpg", alt: "Fruit and pastries at breakfast", width: 1600, height: 2400 },
-    },
-    {
-      eyebrow: "WELLNESS",
-      heading: "A Quiet Place to Reset",
-      body: "An indoor gym, massage room, and steam hammam sit tucked away from the main house — a private sanctuary within the villa itself.",
-      link: { label: "Discover more", href: "/facilities/villa-layout" },
-      image: { src: "/images/feature-wellness.jpg", alt: "Quiet moment in the wellness area", width: 1068, height: 1902, crop: { width: 105.22, height: 141.91, left: -2.61, top: -16.54 } },
-    },
-  ],
+
+  days: {
+    heading: "DAYS AT TAMA",
+    cards: [
+      {
+        key: "pool-beach",
+        eyebrow: "POOL & BEACH",
+        heading: "From Morning Light to Sunset",
+        body: "Two terraces above the Aegean, a heated 7 × 15 m pool, and a garden path down to the sand.",
+        href: "/days-at-tama/pool-beach",
+        media: reel("reel-8-beach-2", "The private beach below the villa"),
+      },
+      {
+        key: "dining",
+        eyebrow: "DINING",
+        heading: "At the Table",
+        body: "Greek and Mediterranean cooking alongside Asian flavours, planned with you before you arrive.",
+        href: "/days-at-tama/dining",
+        media: photo("villa-tama-44", "A plated dish from the in-house chef", 1364, 2048),
+      },
+      {
+        key: "wellness",
+        eyebrow: "WELLNESS & FITNESS",
+        heading: "Strength and Stillness",
+        body: "A Technogym-equipped fitness room, hammam and dedicated massage room, steps from the pool.",
+        href: "/days-at-tama/wellness",
+        media: photo("139-wellness", "A quiet moment in the wellness area", 1364, 2048),
+      },
+    ],
+  },
+
   location: {
-    eyebrow: "Location",
+    eyebrow: "LOCATION",
     heading: "Aleomandra, Mykonos",
     paragraphs: [
-      "The peninsula of Aleomandra is close to the area known as Agios Ioannis, Mykonos, Greece. The location offers extreme privacy plus some of the most enviable sunsets in Mykonos. This bay is the nearest land point to the sacred island of Delos and has picturesque views of the Aegean and other nearby Cycladic islands. The villa is conveniently close to Ornos village and Agios Ioannis bay, with several options for swimming, & dining. Mykonos town, with its traditional alleys and energetic nightlife, is just 5′ away by car.",
+      "Set on the quiet peninsula of Aleomandra, Tama occupies a secluded position on the western edge of Mykonos. A garden path descends from the villa to the sandy beach below, while open views extend across the Aegean towards the sacred island of Delos and neighbouring Rhenia. Facing west, the house holds the sunset in full view.",
+      "The setting feels private and removed, yet some of the island's most sought-after destinations remain close at hand. Beefbar Mykonos and Buddha-Bar Beach are nearby, while Ornos Bay is a short drive away and a convenient departure point for private day charters to Delos, Rhenia and the surrounding Cycladic islands.",
     ],
+    distancesHeading: "Approximate driving times",
     distances: [
-      "Mykonos Town → 5′ drive",
-      "Agios Ioannis beach → 2′ drive",
-      "New Port (ferries) → 12′ drive",
-      "Airport → 12’ drive",
+      "Mykonos Town · 8 minutes",
+      "Agios Ioannis Beach · 4 minutes",
+      "Mykonos Airport · 15 minutes",
+      "New Port · 15 minutes",
     ],
-    link: { label: "View on map", href: "https://maps.app.goo.gl/L58YZvrQrqbMtvp39", external: true },
-    // Figma node 469:677 ("Layer_1_Image", 581 × 462) exported at 2×.
+    note: "Journey times may vary according to seasonal traffic.",
+    mapsLink: { label: "View on Google Maps", href: "https://maps.app.goo.gl/L58YZvrQrqbMtvp39", external: true },
+    // The illustrated map is replaced by an aerial film; Michalis is
+    // supplying it. This drone reel stands in until then.
+    video: reel("reel-13-single-drone-1", "Aerial view of Tama and the Aleomandra coastline"),
     map: { src: "/images/map_image.png", alt: "Map of Mykonos showing the location of Villa Tama in Aleomandra", width: 1162, height: 924, fit: "contain" },
   },
-  inquiries: {
-    eyebrow: "INQUIRIES",
-    heading: "Plan Your Visit",
-    body: "We are happy to assist you with any questions you may have. Please note that Villa Tama is available exclusively for full-property rental and does not offer individual room bookings. \nTo help us provide you with the most accurate and efficient response, we kindly ask you that you complete the form below. ",
-    image: { src: "/images/inquiries-rock.jpg", alt: "Rocky coastline below the villa", width: 1600, height: 2400 },
-    fields: [
-      { name: "name", type: "text", label: "Name" },
-      { name: "email", type: "email", label: "Email" },
-      { name: "phone", type: "tel", label: "Phone" },
-      { name: "message", type: "textarea", label: "Message" },
+
+  enquiries: {
+    eyebrow: "ENQUIRIES",
+    heading: "Plan Your Stay",
+    body: [
+      "To enquire about availability, rates or planning a stay at Tama, please share your preferred dates and a few details below. Our team will respond personally and assist you throughout the process.",
+      "Tama is offered exclusively as a private, full-property rental for up to fourteen guests.",
     ],
-    submit: "Send",
+    image: { src: "/images/inquiries-rock.jpg", alt: "Rocky coastline below the villa", width: 1600, height: 2400 },
+    messagePlaceholder: "Tell us a little about your plans or any questions you have.",
+    // Pending: confirm the Privacy Notice requirement and final text with Evangelos.
+    privacy: { label: "Privacy Notice", href: "/privacy" },
+    submit: "Send Enquiry",
+    directContact: {
+      prefix: "Prefer to contact us directly?",
+      emailLabel: "Email us",
+      whatsappLabel: "enquire on WhatsApp",
+      join: "or",
+    },
+  },
+
+  senseOfPlace: {
+    eyebrow: "SENSE OF PLACE",
+    heading: "The Island, Close By",
+    items: [
+      reel("reel-7-beach-1", "Walking down to the water"),
+      photo("tama-33", "Late light across the terrace", 1520, 2048),
+      photo("villa-tama-27", "Dry-stone walls above the shore", 2048, 1364),
+      reel("reel-2-pool", "The heated pool"),
+      photo("tama-60", "A quiet corner of the garden", 1364, 2048),
+      photo("dscf9318", "The Aegean towards Delos and Rhenia", 2048, 1152),
+      reel("reel-12-balcony-2", "Morning on the balcony"),
+      photo("villa-tama-16", "Breakfast in the shade", 1364, 2048),
+      photo("tama-30", "The house at the end of the day", 1364, 2048),
+      reel("reel-18-single-drone-6", "The coastline from above"),
+      photo("dscf0094", "Sunset over the water", 2048, 1364),
+      photo("villa-tama-31", "An unhurried afternoon", 1364, 2048),
+    ],
+    cta: { label: "View the Full Gallery", href: "/gallery#sense-of-place" },
   },
 };

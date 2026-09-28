@@ -18,9 +18,32 @@ export default async function GalleryPage() {
         <Reveal>
           <SectionHeading as="h1" eyebrow={page.intro.eyebrow} heading={page.intro.heading} gap={8} className="lg:w-[49.1%]" />
         </Reveal>
-        <div className="mt-[31px]">
-          <GalleryGrid items={page.items} featured={page.featured} />
-        </div>
+
+        {/* Section nav — jumps to the two anchors below. */}
+        <Reveal delay={0.08}>
+          <nav aria-label="Gallery sections" className="mt-[18px] lg:mt-[26px] flex flex-wrap items-center gap-x-[32px] gap-y-[10px] lg:gap-x-[64px]">
+            {page.sections.map((s) => (
+              <a key={s.id} href={`#${s.id}`} className="t-eyebrow link-line">
+                {s.title}
+              </a>
+            ))}
+          </nav>
+        </Reveal>
+
+        {page.sections.map((section, i) => (
+          <div
+            key={section.id}
+            id={section.id}
+            className={`scroll-mt-[54px] ${i === 0 ? "mt-[31px] lg:mt-[44px]" : "mt-[40px] lg:mt-[80px]"}`}
+          >
+            <Reveal>
+              <p className="t-eyebrow">{section.title}</p>
+            </Reveal>
+            <div className="mt-[18px] lg:mt-[26px]">
+              <GalleryGrid items={section.items} featured={i === 0 ? page.featured : undefined} />
+            </div>
+          </div>
+        ))}
       </section>
     </main>
   );

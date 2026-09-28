@@ -6,11 +6,11 @@ import { getSiteSettings } from "@/lib/content";
 
 export const metadata: Metadata = {
   title: {
-    default: "Villa Tama — Private Cycladic beachfront residence, Mykonos",
+    default: "Villa Tama — Private Cycladic beachfront property, Mykonos",
     template: "%s — Villa Tama",
   },
   description:
-    "Set above a secluded sandy beach in Aleomandra, Mykonos, Villa Tama is a private Cycladic residence with seven bedrooms, an in-house chef and a heated pool overlooking Delos.",
+    "Set above a secluded sandy beach in Aleomandra, Mykonos, Tama is a private Cycladic property for up to 14 guests — seven bedrooms, an in-house chef, a wellness area and a heated pool overlooking Delos.",
   metadataBase: new URL("https://tamamykonos.com"),
 };
 

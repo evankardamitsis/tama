@@ -1,20 +1,25 @@
 "use client";
 
 import Link from "next/link";
+import { motion } from "motion/react";
 import { useEffect, useState } from "react";
 import { Icon } from "@/components/ui/Icon";
 import { MenuOverlay } from "./MenuOverlay";
 import type { SiteSettings } from "@/content/types";
 
-/** Height of the hero band the transparent navbar floats over. */
-const HERO_SCROLL_THRESHOLD = 480;
+/**
+ * The navbar turns beige once the hero has largely scrolled past — roughly
+ * where the big TAMA / MYKONOS wordmark has finished fading out, so the
+ * small wordmark in the bar takes over from it rather than doubling up.
+ */
+const threshold = () => Math.max(420, window.innerHeight * 0.7);
 
 export function Navbar({ site }: { site: SiteSettings }) {
   const [scrolled, setScrolled] = useState(false);
   const [menuOpen, setMenuOpen] = useState(false);
 
   useEffect(() => {
-    const onScroll = () => setScrolled(window.scrollY > HERO_SCROLL_THRESHOLD);
+    const onScroll = () => setScrolled(window.scrollY > threshold());
     onScroll();
     window.addEventListener("scroll", onScroll, { passive: true });
     return () => window.removeEventListener("scroll", onScroll);
@@ -48,14 +53,20 @@ export function Navbar({ site }: { site: SiteSettings }) {
             ))}
           </div>
 
-          {/* Centre: wordmark (Figma: 88 × 20.5 at y 17) */}
-          <Link
-            href="/"
-            aria-label={`${site.brand} home`}
+          {/* Centre: wordmark. Hidden over the hero so the big TAMA / MYKONOS
+              stands alone; it fades in with the beige bar as that one goes. */}
+          <motion.div
             className="absolute left-1/2 top-[17px] -translate-x-1/2"
+            initial={false}
+            animate={{ opacity: scrolled ? 1 : 0, y: scrolled ? 0 : -4 }}
+            transition={{ duration: 0.5, ease: [0.22, 1, 0.36, 1] }}
+            style={{ pointerEvents: scrolled ? "auto" : "none" }}
+            aria-hidden={!scrolled}
           >
-            <Icon src="/icons/logo-nav.svg" width={88} height={20.5} label={site.brand} />
-          </Link>
+            <Link href="/" aria-label={`${site.brand} home`} tabIndex={scrolled ? 0 : -1}>
+              <Icon src="/icons/logo-nav.svg" width={88} height={20.5} label={site.brand} />
+            </Link>
+          </motion.div>
 
           {/* Right: contact + icons (Figma: x 1269, y 18) */}
           <div className="absolute right-[20px] top-[18px] flex h-[20px] items-center justify-end gap-[14px] lg:right-[56px] lg:gap-[11px]">

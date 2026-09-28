@@ -2,97 +2,156 @@ import type { AboutPage } from "./types";
 
 export const about: AboutPage = {
   hero: {
-    image: { src: "/images/about-hero.jpg", alt: "Silhouette at the window at sunset", width: 2400, height: 1600, position: "50% 7%" },
-    mobileImage: { src: "/images/gallery-beach-woman.jpg", alt: "Guest walking on the beach", width: 1600, height: 2400, position: "50% 50%" },
+    image: {
+      src: "/images/about-header.jpg",
+      alt: "Villa Tama's whitewashed terraces stepping down towards the Aegean",
+      width: 3840,
+      height: 2560,
+      position: "50% 50%",
+    },
   },
   concept: {
     eyebrow: "CONCEPT",
-    heading: "The soul of the island ",
+    heading: "Island Character",
     paragraphs: [
-      "Villa Tama turns a single stretch of Mykonos coastline into a complete, considered world. Every room, terrace, and shared meal carries the same quiet intention — light, texture, and unhurried service woven into a stay that feels effortless, private, and entirely its own.",
+      "Tama was conceived in response to its setting. Whitewashed forms, dry-stone walls and natural materials place the house quietly within the landscape, while the sea, garden and changing Aegean light remain present throughout.",
+      "Indoors and outdoors flow naturally into one another through shaded terraces, open living spaces and places made for gathering from morning to sunset.",
     ],
   },
-  house: {
-    heading: "A house , not a hotel",
+  privacy: {
+    heading: "Entirely Private",
     paragraphs: [
-      "We made a deliberate choice: one property, one island, one guest at a time. Tama is never shared or divided into rooms sold separately  it is offered whole, so every detail can be shaped entirely around the people staying in it.",
-      "This same devotion reaches beyond the villa's walls, into the rhythm of Aleomandra itself its light, its produce, its quiet hours  so a stay at Tama feels less like a booking, and more like arriving somewhere already understood.",
+      "Tama is offered only as a complete private residence, never divided or shared. It combines the intimacy of a private home with attentive service, giving guests space to come together and space to retreat.",
+      "A dedicated team works quietly around the rhythm of each stay, allowing the experience to feel personal, relaxed and entirely its own.",
     ],
   },
   conceptImages: [
-    { src: "/images/about-living.jpg", alt: "The living room", width: 2400, height: 1800, crop: { width: 156.51, height: 106.94, left: -41.11, top: -3.47 } },
-    { src: "/images/about-exterior.jpg", alt: "Whitewashed exterior against the sea", width: 2048, height: 1365, crop: { width: 198.33, height: 120.43, left: -3.02, top: -15.98 } },
+    {
+      src: "/images/tama-52.jpg",
+      alt: "The living room at dusk, with wooden dining table, low sofas and windows onto the bay",
+      width: 1364,
+      height: 2048,
+      position: "50% 45%",
+    },
+    {
+      src: "/images/006-uppergate-mainentrance.jpg",
+      alt: "The upper gate at the main entrance, framed by whitewashed walls",
+      width: 1364,
+      height: 2048,
+      position: "50% 50%",
+    },
   ],
   quiet: {
-    heading: "The Quiet Destinations",
+    heading: "The Quiet Details",
     paragraphs: [
-      "Our approach rests on two ideas: consistency, and restraint. Every gesture — from the turn-down of a bed to the timing of a sunset dinner — is considered in advance, so nothing about the stay ever feels improvised.",
-      "It is in this quiet precision that Tama's character lives. Not in spectacle, but in the accumulation of small, correct decisions — the kind that let a guest simply arrive, and stay.",
+      "At Tama, hospitality is built around consistency rather than display. Preferences are understood before arrival, allowing the house, menus and rhythm of service to be prepared around each group.",
+      "Once guests arrive, the team remains attentive without becoming intrusive. Rooms are cared for, service unfolds naturally and small requests are remembered, leaving guests free to settle into the house at their own pace.",
     ],
   },
-  culinary: {
-    heading: "Culinary Cornerstone",
+  /* Client: "Keep same photo" — carried over unchanged from the previous page. */
+  quietImage: {
+    src: "/images/about-flowers.jpg",
+    alt: "Flowers and books on the table",
+    width: 1600,
+    height: 2400,
+    crop: { width: 100, height: 212.99, left: 0, top: -56.38 },
+  },
+  local: {
+    heading: "Local Knowledge, Personal Service",
     paragraphs: [
-      "At Tama, food follows the produce, not the trend. Each meal is shaped around what the island gives that day — fish brought in that morning, tomatoes still warm from the sun, herbs cut minutes before they reach the table.",
-      "This isn't service for its own sake — it's care distilled into its simplest form: something true to the place, prepared without excess, so the ingredients can speak for themselves.",
+      "Years spent living and working on Mykonos have created a close understanding of the island and a trusted network across hospitality, wellness and events.",
+      "All concierge arrangements are handled directly by Tama's own property team, who remain the guests' single point of contact throughout their stay. Long-standing relationships with many of Mykonos' leading restaurants and beach clubs help secure sought-after reservations, including during the busiest weeks of summer.",
+      "When specialist services are requested, the team calls upon trusted massage therapists, personal trainers, bartenders, private drivers and event professionals, selecting and coordinating each personally. From a private boat charter to an evening at the villa, every arrangement remains under the care of the Tama team.",
     ],
   },
-  quietImage: { src: "/images/about-flowers.jpg", alt: "Flowers and books on the table", width: 1600, height: 2400, crop: { width: 100, height: 212.99, left: 0, top: -56.38 } },
   people: {
     eyebrow: "PEOPLE",
-    heading: "The Team ",
+    heading: "The Team",
     paragraphs: [
-      "Behind every stay is a dedicated team, quietly present throughout the day to care for the villa, prepare each moment and ensure everything flows with ease.",
-      "From housekeeping and service to the garden, kitchen and daily villa management, each member of the Villa Tama team brings a sense of care, discretion and familiarity to the guest experience.",
+      "Tama is defined as much by its people as by the house itself. The team knows its spaces, routines and details intimately, allowing them to anticipate what is needed and work together naturally throughout the day.",
+      "Across villa management, the kitchen, housekeeping, service and gardens, each person plays a distinct role. Guests are welcomed by familiar faces throughout their stay, creating an experience that feels personal and attentive, without formality.",
     ],
   },
   peopleImages: [
-    { src: "/images/about-team.jpg", alt: "The team gathered in the kitchen", width: 1600, height: 2400, crop: { width: 100, height: 100.23, left: 0, top: -0.2 } },
-    { src: "/images/about-kitchen.jpg", alt: "The chef at work", width: 1600, height: 2400, crop: { width: 150.61, height: 150.95, left: -44.07, top: -40.77 } },
+    {
+      src: "/images/about-people-1.jpg",
+      alt: "Two of the Tama team setting a table on the shaded terrace",
+      width: 1364,
+      height: 2048,
+      position: "50% 50%",
+    },
+    {
+      src: "/images/about-people-2.jpg",
+      alt: "A member of the Tama team preparing plates in the kitchen",
+      width: 1364,
+      height: 2048,
+      position: "50% 50%",
+    },
   ],
   teamHeading: "Meet the team",
   team: [
     {
-      role: "Villa Manager",
+      role: "VILLA MANAGER",
       name: "Chris",
-      bio: "Oversees every stay from first inquiry to departure, anticipating needs and ensuring each day unfolds exactly as it should.",
-      image: { src: "/images/about-team.jpg", alt: "Chris, Villa Manager", width: 1600, height: 2400, crop: { width: 339.93, height: 447.77, left: -159.74, top: -179.1 } },
+      bio: "Oversees each stay from first enquiry to departure, coordinating the team, concierge arrangements and every detail in between.",
+      /* Placeholder: the client is sending Chris's own portrait — swap this
+         image for /images/team-chris.jpg once it arrives. */
+      image: {
+        src: "/images/about-people-1.jpg",
+        alt: "Chris, Villa Manager",
+        width: 1364,
+        height: 2048,
+        position: "50% 30%",
+      },
     },
     {
-      role: "Butler",
+      role: "BUTLER",
       name: "Natalie",
-      bio: "The quiet constant of the house — attentive to every detail of daily life at Tama, from morning to the last light of evening.",
-      image: { src: "/images/team-natalie.jpg", alt: "Natalie, Butler", width: 1600, height: 2400, crop: { width: 128.05, height: 168.68, left: -10.56, top: -30.86 } },
+      bio: "Looks after guests throughout the day, coordinating service and responding personally to requests across the house.",
+      image: { src: "/images/team-natalie.jpg", alt: "Natalie, Butler", width: 1364, height: 2048, position: "50% 30%" },
     },
     {
-      role: "Head Chef",
+      role: "HEAD CHEF",
       name: "Theo",
-      bio: "Shapes each menu around the season's best, working directly with guests on private dining throughout the stay.",
-      image: { src: "/images/team-theo.jpg", alt: "Theo, Head Chef", width: 1600, height: 2400, crop: { width: 115.51, height: 152.16, left: -7.59, top: -17.38 } },
+      bio: "Leads the kitchen and shapes each menu around the season, the occasion and the preferences of every guest.",
+      image: { src: "/images/team-theo.jpg", alt: "Theo, Head Chef", width: 1364, height: 2048, position: "50% 30%" },
     },
     {
-      role: "Assistant Chef",
+      role: "ASSISTANT CHEF",
       name: "Stefanos",
-      bio: "Works alongside Theo in the kitchen, bringing precision and care to every dish that leaves it.",
-      image: { src: "/images/team-stefanos.jpg", alt: "Stefanos, Assistant Chef", width: 1600, height: 2400, crop: { width: 110.23, height: 145.2, left: -4.95, top: -16.22 } },
+      bio: "Supports Theo throughout preparation and service, bringing consistency, precision and care to every plate.",
+      image: { src: "/images/team-stefanos.jpg", alt: "Stefanos, Assistant Chef", width: 1364, height: 2048, position: "50% 30%" },
     },
     {
-      role: "Waiter & Bar",
-      name: "Christos",
-      bio: "Sets the table and the mood in equal measure, from morning coffee to the last drink of the night.",
-      image: { src: "/images/team-christos.jpg", alt: "Christos, Waiter & Bar", width: 1600, height: 2400, crop: { width: 108.58, height: 143.03, left: -2.64, top: -7.31 } },
-    },
-    {
-      role: "Housekeeping",
+      role: "HOUSEKEEPER",
       name: "Alma",
-      bio: "Maintains the interiors with quiet precision, so every room feels effortless and untouched by routine.",
-      image: { src: "/images/team-alma.jpg", alt: "Alma, Housekeeping", width: 1600, height: 2400, crop: { width: 228.05, height: 300.4, left: -17.49, top: -40.78 } },
+      bio: "Cares for the bedrooms and shared spaces each day, ensuring the house always feels fresh, calm and beautifully prepared.",
+      image: { src: "/images/team-alma.jpg", alt: "Alma, Housekeeper", width: 1364, height: 2048, position: "50% 30%" },
     },
     {
-      role: "Maintenance",
+      role: "GROUNDS & MAINTENANCE",
       name: "Afrim",
-      bio: "Tends the grounds daily, keeping the landscape as considered and alive as the \nvilla itself.",
-      image: { src: "/images/team-afrim.jpg", alt: "Afrim, Maintenance", width: 1600, height: 2400, crop: { width: 103.64, height: 136.52, left: -1.66, top: -9.57 } },
+      bio: "Cares for the gardens, outdoor spaces and daily maintenance, keeping the property running smoothly throughout each stay.",
+      image: { src: "/images/team-afrim.jpg", alt: "Afrim, Grounds & Maintenance", width: 1364, height: 2048, position: "50% 30%" },
     },
   ],
+  guestNotes: {
+    eyebrow: "GUEST NOTES",
+    heading: "In Their Words",
+    items: [
+      {
+        quote: "“There is definitely nothing like Tama and the team that takes care of it.”",
+        attribution: "Returning guest · September 2026",
+      },
+      {
+        quote:
+          "“Thank you to the entire villa team for making our stay so special. The meals were wonderful, and your help in organising us each day was exceptional. We look forward to returning.”",
+        attribution: "Guest · June 2025",
+      },
+      {
+        quote: "“You are very lucky, and capable, to have the team you have here. Believe me, it shows.”",
+        attribution: "Returning guest · July 2026",
+      },
+    ],
+  },
 };

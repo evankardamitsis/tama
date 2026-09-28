@@ -49,10 +49,10 @@ export function Footer({ site }: { site: SiteSettings }) {
           </div>
           <div>
             <p className="font-angie text-[14px] font-bold leading-normal">{f.menuHeading}</p>
-            <ul className="mt-[11px] flex w-[68px] flex-col gap-[11px] font-angie text-[14px] leading-normal">
+            <ul className="mt-[11px] flex flex-col gap-[11px] font-angie text-[14px] leading-normal">
               {f.menuLinks.map((l) => (
                 <li key={l.label}>
-                  <Link href={l.href} className="link-line">{l.label}</Link>
+                  <Link href={l.href} className="link-line whitespace-nowrap">{l.label}</Link>
                 </li>
               ))}
             </ul>
@@ -106,7 +106,7 @@ export function Footer({ site }: { site: SiteSettings }) {
             <p className="font-angie text-[14px] font-bold">{f.menuHeading}</p>
             <ul className="mt-3 flex flex-col gap-[11px] font-angie text-[14px]">
               {f.menuLinks.map((l) => (
-                <li key={l.label}><Link href={l.href} className="link-line">{l.label}</Link></li>
+                <li key={l.label}><Link href={l.href} className="link-line whitespace-nowrap">{l.label}</Link></li>
               ))}
             </ul>
           </div>

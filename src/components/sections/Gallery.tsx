@@ -4,10 +4,9 @@ import { useCallback, useState } from "react";
 import { Picture, coverFallback } from "@/components/ui/Picture";
 import { Lightbox } from "./Lightbox";
 import { VideoTile } from "./VideoTile";
-import type { GalleryItem } from "@/content/types";
+import type { GalleryItem, Link } from "@/content/types";
 import { Button } from "@/components/ui/Button";
 import { Reveal } from "@/components/motion/Reveal";
-import type { HomePage } from "@/content/types";
 
 /* Figma "GALLERY" collage, px within a 1280 × 1585 box (x 80, y 2624). */
 const CANVAS = { w: 1280, h: 1585 };
@@ -23,7 +22,9 @@ const RECTS = [
 
 const pct = (n: number, of: number) => `${((n / of) * 100).toFixed(4)}%`;
 
-export function Gallery({ gallery }: { gallery: HomePage["gallery"] }) {
+type CollageContent = { eyebrow: string; heading: string; items: GalleryItem[]; cta: Link };
+
+export function Gallery({ gallery, id = "gallery" }: { gallery: CollageContent; id?: string }) {
   const [open, setOpen] = useState<number | null>(null);
   const close = useCallback(() => setOpen(null), []);
   const items: GalleryItem[] = gallery.items.map((it) => (it.type === "image" ? { ...it, image: coverFallback(it.image) } : it));
@@ -33,7 +34,7 @@ export function Gallery({ gallery }: { gallery: HomePage["gallery"] }) {
   );
 
   return (
-    <section id="gallery" className="page-container scroll-mt-[54px]">
+    <section id={id} className="page-container scroll-mt-[54px]">
       <Reveal className="flex flex-col gap-[8px]">
         <p className="t-eyebrow">{gallery.eyebrow}</p>
         <h2 className="t-h2">{gallery.heading}</h2>
@@ -90,7 +91,7 @@ export function Gallery({ gallery }: { gallery: HomePage["gallery"] }) {
       </div>
 
       <Reveal className="mt-[24px] lg:mt-[49px] flex justify-center">
-        <Button href={gallery.cta.href} variant="outline" className="w-[175px] md:translate-x-[11px]">
+        <Button href={gallery.cta.href} variant="outline" className="md:translate-x-[11px]">
           {gallery.cta.label}
         </Button>
       </Reveal>

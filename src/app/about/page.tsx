@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { Hero } from "@/components/sections/Hero";
-import { FacilityCards } from "@/components/sections/FacilityCards";
+import { ExploreCards } from "@/components/sections/ExploreCards";
+import { GuestNotes } from "@/components/sections/GuestNotes";
 import { Reveal } from "@/components/motion/Reveal";
 import { Picture } from "@/components/ui/Picture";
 import { Rule } from "@/components/ui/Rule";
@@ -17,7 +18,7 @@ export default async function AboutPage() {
     <main>
       <Hero hero={page.hero} />
 
-      {/* CONCEPT — y 673 */}
+      {/* CONCEPT / ENTIRELY PRIVATE — y 673 */}
       <section className="page-container mt-[25px] lg:mt-[50px] grid grid-cols-1 gap-8 md:grid-cols-2 md:gap-x-[20px] lg:grid-cols-[32.4%_32.6%_32.3%] lg:justify-between lg:gap-0">
         <div className="flex flex-col md:col-span-2 lg:col-span-1">
           <Reveal className="flex flex-col gap-[13px]">
@@ -26,8 +27,8 @@ export default async function AboutPage() {
             <Paragraphs items={page.concept.paragraphs ?? []} />
           </Reveal>
           <Reveal className="mt-[26px] lg:mt-[52px] flex flex-col gap-[13px]">
-            <h2 className="t-h2">{page.house.heading}</h2>
-            <Paragraphs items={page.house.paragraphs ?? []} />
+            <h2 className="t-h2">{page.privacy.heading}</h2>
+            <Paragraphs items={page.privacy.paragraphs ?? []} />
           </Reveal>
         </div>
         <Reveal delay={0.12} className="lg:mt-[19px]">
@@ -40,7 +41,7 @@ export default async function AboutPage() {
 
       <Rule className="mt-[24px] lg:mt-[46px]" />
 
-      {/* QUIET / CULINARY — y 1246 */}
+      {/* THE QUIET DETAILS / LOCAL KNOWLEDGE — y 1246 */}
       <section className="page-container mt-[26px] lg:mt-[51px] flex flex-col gap-8 lg:flex-row lg:gap-0">
         <Reveal className="w-full lg:mt-[5px] lg:w-[49.2%]">
           <Picture image={page.quietImage} zoom className="aspect-[630/444] w-full" sizes="(min-width: 1024px) 630px, 100vw" />
@@ -51,8 +52,8 @@ export default async function AboutPage() {
             <Paragraphs items={page.quiet.paragraphs ?? []} />
           </Reveal>
           <Reveal delay={0.12} className="mt-[26px] lg:mt-[52px] flex flex-col gap-[13px]">
-            <h2 className="t-h2">{page.culinary.heading}</h2>
-            <Paragraphs items={page.culinary.paragraphs ?? []} />
+            <h2 className="t-h2">{page.local.heading}</h2>
+            <Paragraphs items={page.local.paragraphs ?? []} />
           </Reveal>
         </div>
       </section>
@@ -60,7 +61,7 @@ export default async function AboutPage() {
       <Rule className="mt-[28px] lg:mt-[56px]" />
 
       {/* PEOPLE — y 1803 */}
-      <section id="team" className="page-container mt-[26px] lg:mt-[52px] scroll-mt-[54px] grid grid-cols-1 gap-8 md:grid-cols-2 md:gap-x-[20px] lg:grid-cols-[32.1%_32.3%_32.3%] lg:justify-between lg:gap-0">
+      <section className="page-container mt-[26px] lg:mt-[52px] grid grid-cols-1 gap-8 md:grid-cols-2 md:gap-x-[20px] lg:grid-cols-[32.1%_32.3%_32.3%] lg:justify-between lg:gap-0">
         <Reveal className="flex flex-col gap-[13px] md:col-span-2 lg:col-span-1">
           <p className="t-eyebrow">{page.people.eyebrow}</p>
           <h2 className="t-h2">{page.people.heading}</h2>
@@ -74,8 +75,8 @@ export default async function AboutPage() {
         </Reveal>
       </section>
 
-      {/* TEAM GRID — y 2456 */}
-      <section className="page-container mt-[24px] lg:mt-[35px]">
+      {/* TEAM GRID — y 2456. Linked from several pages as /about#team. */}
+      <section id="team" className="page-container mt-[24px] lg:mt-[35px] scroll-mt-[54px]">
         <Reveal>
           <h2 className="t-h2">{page.teamHeading}</h2>
         </Reveal>
@@ -87,7 +88,7 @@ export default async function AboutPage() {
                   <Picture image={m.image} zoom className="aspect-[303/345] w-full" sizes="(min-width: 1024px) 303px, 50vw" />
                   <p className="t-eyebrow">{m.role}</p>
                   <h3 className="t-h2">{m.name}</h3>
-                  <Paragraphs items={[m.bio]} />
+                  {m.bio && <Paragraphs items={[m.bio]} />}
                 </article>
               </Reveal>
             ))}
@@ -97,7 +98,17 @@ export default async function AboutPage() {
 
       <Rule className="mt-[26px] lg:mt-[53px]" />
 
-      <FacilityCards heading={site.facilitiesHeading} cards={site.facilityCards} mono className="mt-[24px] lg:mt-[35px] pb-[25px]" />
+      {/* GUEST NOTES */}
+      <GuestNotes
+        eyebrow={page.guestNotes.eyebrow}
+        heading={page.guestNotes.heading}
+        items={page.guestNotes.items}
+        className="mt-[24px] lg:mt-[48px]"
+      />
+
+      <Rule className="mt-[26px] lg:mt-[53px]" />
+
+      <ExploreCards heading={site.exploreHeading} cards={site.exploreCards} className="mt-[24px] lg:mt-[35px] pb-[25px]" />
     </main>
   );
 }
