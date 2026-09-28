@@ -35,7 +35,7 @@ to their `/the-villa/*` equivalents (`next.config.ts`).
 
 Hero → Description → **Explore** (4 cards) → **Press** → **Life at Tama** (film)
 → People → **The Property** (carousel) → **Days at Tama** (3 cards) → Location
-→ Enquiries → **Sense of Place**. The last one is deliberately not in the menu.
+→ **Sense of Place** → Enquiries. Sense of Place is deliberately not in the menu.
 
 ## Project layout
 
