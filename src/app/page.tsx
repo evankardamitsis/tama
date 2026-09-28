@@ -127,8 +127,15 @@ export default async function HomePage() {
 
       <Rule className="mt-[42px] lg:mt-[83px]" />
 
+      {/* SENSE OF PLACE — not in the menu, by request. */}
+      <div className="mt-[36px] lg:mt-[71px]">
+        <Gallery gallery={senseOfPlace} id="sense-of-place" />
+      </div>
+
+      <Rule className="mt-[42px] lg:mt-[83px]" />
+
       {/* ENQUIRIES */}
-      <section id="enquiries" className="page-container mt-[16px] scroll-mt-[54px]">
+      <section id="enquiries" className="page-container mt-[16px] scroll-mt-[54px] pb-[27px] lg:pb-[54px]">
         <Reveal className="pt-[29px]">
           <SectionHeading eyebrow={enquiries.eyebrow} heading={enquiries.heading} className="lg:w-[49.1%]" />
         </Reveal>
@@ -144,13 +151,6 @@ export default async function HomePage() {
           </Reveal>
         </div>
       </section>
-
-      <Rule className="mt-[42px] lg:mt-[83px]" />
-
-      {/* SENSE OF PLACE — closes the page. Not in the menu, by request. */}
-      <div className="mt-[36px] lg:mt-[71px] pb-[27px] lg:pb-[54px]">
-        <Gallery gallery={senseOfPlace} id="sense-of-place" />
-      </div>
     </main>
   );
 }
