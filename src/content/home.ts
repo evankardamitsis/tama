@@ -100,7 +100,7 @@ export const home: HomePage = {
         heading: "At the Table",
         body: "Greek and Mediterranean cooking alongside Asian flavours, planned with you before you arrive.",
         href: "/days-at-tama/dining",
-        media: photo("villa-tama-44", "A plated dish from the in-house chef", 1364, 2048),
+        media: reel("reel-10-dinner", "Dinner served on the terrace at sunset"),
       },
       {
         key: "wellness",
@@ -108,7 +108,7 @@ export const home: HomePage = {
         heading: "Strength and Stillness",
         body: "A Technogym-equipped fitness room, hammam and dedicated massage room, steps from the pool.",
         href: "/days-at-tama/wellness",
-        media: photo("139-wellness", "A quiet moment in the wellness area", 1364, 2048),
+        media: reel("reel-3-massage", "The massage room"),
       },
     ],
   },
