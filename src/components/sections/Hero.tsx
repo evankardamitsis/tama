@@ -7,6 +7,7 @@ import { Icon } from "@/components/ui/Icon";
 import { Preloader } from "./Preloader";
 import { Lightbox } from "./Lightbox";
 import { DUR, EASE } from "@/components/motion/easing";
+import { setHeroWordmark } from "@/components/layout/heroWordmark";
 import type { Hero as HeroT } from "@/content/types";
 
 type Props = { hero: HeroT; size?: "home" | "page"; brand?: string };
@@ -82,6 +83,12 @@ export function Hero({ hero, size = "page", brand = "TAMA" }: Props) {
     const t = window.setTimeout(done, PRELOAD_TIMEOUT_MS);
     return () => window.clearTimeout(t);
   }, [loading, done]);
+
+  // Tell the navbar to hold its wordmark back while this hero shows the big one.
+  useEffect(() => {
+    setHeroWordmark(Boolean(hero.showLogo));
+    return () => setHeroWordmark(false);
+  }, [hero.showLogo]);
 
   // Parallax: as the hero scrolls out, the media drifts at ~30% of scroll
   // speed and the wordmark at ~50%, fading as it goes.

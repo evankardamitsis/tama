@@ -5,6 +5,7 @@ import { motion } from "motion/react";
 import { useEffect, useState } from "react";
 import { Icon } from "@/components/ui/Icon";
 import { MenuOverlay } from "./MenuOverlay";
+import { useHeroWordmark } from "./heroWordmark";
 import type { SiteSettings } from "@/content/types";
 
 /**
@@ -17,6 +18,10 @@ const threshold = () => Math.max(420, window.innerHeight * 0.7);
 export function Navbar({ site }: { site: SiteSettings }) {
   const [scrolled, setScrolled] = useState(false);
   const [menuOpen, setMenuOpen] = useState(false);
+  // Only the home hero carries the big TAMA / MYKONOS; there the small
+  // wordmark waits for it to fade. Every other page shows it from the start.
+  const heroWordmark = useHeroWordmark();
+  const showWordmark = scrolled || !heroWordmark;
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > threshold());
@@ -58,12 +63,12 @@ export function Navbar({ site }: { site: SiteSettings }) {
           <motion.div
             className="absolute left-1/2 top-[17px] -translate-x-1/2"
             initial={false}
-            animate={{ opacity: scrolled ? 1 : 0, y: scrolled ? 0 : -4 }}
+            animate={{ opacity: showWordmark ? 1 : 0, y: showWordmark ? 0 : -4 }}
             transition={{ duration: 0.5, ease: [0.22, 1, 0.36, 1] }}
-            style={{ pointerEvents: scrolled ? "auto" : "none" }}
-            aria-hidden={!scrolled}
+            style={{ pointerEvents: showWordmark ? "auto" : "none" }}
+            aria-hidden={!showWordmark}
           >
-            <Link href="/" aria-label={`${site.brand} home`} tabIndex={scrolled ? 0 : -1}>
+            <Link href="/" aria-label={`${site.brand} home`} tabIndex={showWordmark ? 0 : -1}>
               <Icon src="/icons/logo-nav.svg" width={88} height={20.5} label={site.brand} />
             </Link>
           </motion.div>

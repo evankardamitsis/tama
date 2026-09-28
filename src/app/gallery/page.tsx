@@ -19,17 +19,6 @@ export default async function GalleryPage() {
           <SectionHeading as="h1" eyebrow={page.intro.eyebrow} heading={page.intro.heading} gap={8} className="lg:w-[49.1%]" />
         </Reveal>
 
-        {/* Section nav — jumps to the two anchors below. */}
-        <Reveal delay={0.08}>
-          <nav aria-label="Gallery sections" className="mt-[18px] lg:mt-[26px] flex flex-wrap items-center gap-x-[32px] gap-y-[10px] lg:gap-x-[64px]">
-            {page.sections.map((s) => (
-              <a key={s.id} href={`#${s.id}`} className="t-eyebrow link-line">
-                {s.title}
-              </a>
-            ))}
-          </nav>
-        </Reveal>
-
         {page.sections.map((section, i) => (
           <div
             key={section.id}

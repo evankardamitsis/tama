@@ -8,7 +8,12 @@ import type { GalleryItem, Link } from "@/content/types";
 import { Button } from "@/components/ui/Button";
 import { Reveal } from "@/components/motion/Reveal";
 
-/* Figma "GALLERY" collage, px within a 1280 × 1585 box (x 80, y 2624). */
+/* Figma "GALLERY" collage, px within a 1280 × 1585 box (x 80, y 2624).
+   Slot shapes, in order — content should be ordered to match, or portraits
+   end up cropped to ribbons in the wide slots:
+     0 landscape 1.50 · 1 portrait 0.71 · 2 portrait 0.67 · 3 portrait 0.68
+     4 near-square 1.14 · 5 landscape 1.44 · 6 landscape 1.52
+   Items 7+ appear on the phone layout only. */
 const CANVAS = { w: 1280, h: 1585 };
 const RECTS = [
   { x: 0, y: 0, w: 737, h: 492 },

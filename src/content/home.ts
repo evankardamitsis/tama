@@ -158,19 +158,22 @@ export const home: HomePage = {
   senseOfPlace: {
     eyebrow: "SENSE OF PLACE",
     heading: "The Island, Close By",
+    // Ordered to the collage's slot shapes (see Gallery.tsx): landscape,
+    // portrait, portrait, portrait, near-square, landscape, landscape.
+    // Items 8-12 show on phones only, where 1 / 4 / 7 / 10 run full width.
     items: [
+      photo("villa-tama-27", "Dry-stone walls above the shore", 2048, 1364),
       reel("reel-7-beach-1", "Walking down to the water"),
       photo("tama-33", "Late light across the terrace", 1520, 2048),
-      photo("villa-tama-27", "Dry-stone walls above the shore", 2048, 1364),
       reel("reel-2-pool", "The heated pool"),
-      photo("tama-60", "A quiet corner of the garden", 1364, 2048),
+      photo("dscf4016", "The bay in the afternoon", 2048, 1364),
+      photo("dscf0094", "Sunset over the water", 2048, 1364),
       photo("dscf9318", "The Aegean towards Delos and Rhenia", 2048, 1152),
       reel("reel-12-balcony-2", "Morning on the balcony"),
+      photo("tama-60", "A quiet corner of the garden", 1364, 2048),
+      photo("dscf9101", "The headland from the terrace", 2048, 1152),
       photo("villa-tama-16", "Breakfast in the shade", 1364, 2048),
-      photo("tama-30", "The house at the end of the day", 1364, 2048),
       reel("reel-18-single-drone-6", "The coastline from above"),
-      photo("dscf0094", "Sunset over the water", 2048, 1364),
-      photo("villa-tama-31", "An unhurried afternoon", 1364, 2048),
     ],
     cta: { label: "View the Full Gallery", href: "/gallery#sense-of-place" },
   },
