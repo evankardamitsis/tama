@@ -63,7 +63,10 @@
   --breakpoint-xl: 1440px;
 }
 
-/* Type ramp — names mirror the Figma text styles */
+/* Type ramp.
+   Three sizes only — 34 / 26 / 16 on desktop, 28 / 22 / 16 on phones — with
+   weight and case carrying the rest of the hierarchy. Anything that used to
+   sit at 12, 14 or 20 now resolves to 16. */
 @utility t-h1 {
   font-family: var(--font-angie);
   font-weight: 400;
@@ -82,13 +85,15 @@
     font-size: 26px;
   }
 }
+/* Kept as an alias so existing markup keeps reading sensibly; it is the
+   same size as t-h2 now. Prefer t-h2 for new work. */
 @utility t-h3 {
   font-family: var(--font-angie);
   font-weight: 400;
-  font-size: 19px;
+  font-size: 22px;
   line-height: normal;
   @media (width >= 48rem) {
-    font-size: 22px;
+    font-size: 26px;
   }
 }
 @utility t-body {
@@ -100,31 +105,30 @@
     line-height: 1.0006;
   }
 }
+/* Uppercase section labels. */
 @utility t-eyebrow {
   font-family: var(--font-angie);
   font-weight: 700;
-  font-size: 14px;
+  font-size: 16px;
   line-height: normal;
-  @media (width >= 48rem) {
-    font-size: 16px;
-  }
 }
+/* Title-case labels and inline links — body size, bold. */
 @utility t-subline {
   font-family: var(--font-angie);
   font-weight: 700;
-  font-size: 12px;
+  font-size: 16px;
   line-height: normal;
 }
 @utility t-nav {
   font-family: var(--font-angie);
   font-weight: 400;
-  font-size: 14px;
+  font-size: 16px;
   line-height: normal;
 }
 @utility t-footer {
   font-family: var(--font-angie);
   font-weight: 400;
-  font-size: 14px;
+  font-size: 16px;
   line-height: 25px;
 }
 

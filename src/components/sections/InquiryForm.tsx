@@ -12,13 +12,13 @@ const initial: InquiryState = { status: "idle" };
 const field =
   "w-full bg-transparent font-angie text-[16px] leading-normal text-bark outline-none placeholder:text-bark/40";
 const line = "mt-[8px] h-[40px] border-b border-bark";
-const label = "block t-h3 text-[20px] leading-[18px]";
+const label = "block font-angie text-[16px] font-bold leading-normal";
 
 const ENQUIRING_AS = ["Guest", "Travel advisor / Agency", "Other"];
 
 function Check({ name, children }: { name: string; children: React.ReactNode }) {
   return (
-    <label className="flex cursor-pointer items-center gap-[10px] font-angie text-[14px] leading-normal">
+    <label className="flex cursor-pointer items-center gap-[10px] font-angie text-[16px] leading-normal">
       <input type="checkbox" name={name} className="peer sr-only" />
       <span className="flex h-[16px] w-[16px] shrink-0 items-center justify-center border border-bark transition-colors duration-300 peer-checked:bg-bark peer-focus-visible:outline peer-focus-visible:outline-1 peer-focus-visible:outline-offset-2">
         <svg width="9" height="7" viewBox="0 0 9 7" className="fill-none stroke-sand opacity-0 transition-opacity duration-200 peer-checked:opacity-100" strokeWidth="1.4" aria-hidden>
@@ -37,7 +37,7 @@ export function InquiryForm({ enquiries, contact }: Props) {
   const [undecided, setUndecided] = useState(false);
 
   return (
-    <form action={action} className="flex w-full flex-col" noValidate>
+    <form action={action} className="relative flex w-full flex-col" noValidate>
       <label className="mb-[24px] block">
         <span className={label}>Full name</span>
         <input type="text" name="name" autoComplete="name" required className={`${field} ${line}`} />
@@ -97,7 +97,7 @@ export function InquiryForm({ enquiries, contact }: Props) {
 
       <div className="mb-[28px] flex flex-col gap-[12px] sm:flex-row sm:gap-[28px]">
         <Check name="flexible">My dates are flexible</Check>
-        <label className="flex cursor-pointer items-center gap-[10px] font-angie text-[14px] leading-normal">
+        <label className="flex cursor-pointer items-center gap-[10px] font-angie text-[16px] leading-normal">
           <input
             type="checkbox"
             name="undecided"
@@ -135,7 +135,33 @@ export function InquiryForm({ enquiries, contact }: Props) {
         />
       </label>
 
-      <p className="mb-[20px] font-angie text-[12px] leading-normal text-bark/70">
+      {/* Simple human check. Not a CAPTCHA — it pairs with the hidden
+          honeypot field below, which real people never fill in. */}
+      <label className="mb-[22px] flex cursor-pointer items-center gap-[10px] font-angie text-[16px] leading-normal">
+        <input
+          type="checkbox"
+          name="human"
+          required
+          className="peer sr-only"
+          aria-describedby="human-hint"
+        />
+        <span className="flex h-[18px] w-[18px] shrink-0 items-center justify-center border border-bark transition-colors duration-300 peer-checked:bg-bark peer-focus-visible:outline peer-focus-visible:outline-1 peer-focus-visible:outline-offset-2">
+          <svg width="10" height="8" viewBox="0 0 9 7" className="fill-none stroke-sand opacity-0 transition-opacity duration-200 peer-checked:opacity-100" strokeWidth="1.4" aria-hidden>
+            <path d="M1 3.6 3.3 6 8 1" />
+          </svg>
+        </span>
+        <span id="human-hint">I am not a robot</span>
+      </label>
+
+      {/* Honeypot — hidden from people, catches most automated submissions. */}
+      <div aria-hidden className="absolute left-[-9999px] h-0 w-0 overflow-hidden">
+        <label>
+          Leave this field empty
+          <input type="text" name="company" tabIndex={-1} autoComplete="off" />
+        </label>
+      </div>
+
+      <p className="mb-[20px] font-angie text-[16px] leading-normal text-bark/70">
         By sending this enquiry you agree to our{" "}
         <Link href={enquiries.privacy.href} className="link-line underline [text-underline-position:from-font]">
           {enquiries.privacy.label}

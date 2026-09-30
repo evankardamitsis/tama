@@ -35,7 +35,7 @@ export default async function AmenitiesPage() {
         {/* Bullet groups — left half */}
         <div className="flex w-full flex-col gap-[26px] lg:w-[49.2%]">
           <Reveal className="flex flex-col gap-[13px]">
-            <h1 className="t-h2">{page.intro.heading}</h1>
+            <h1 className="t-h1">{page.intro.heading}</h1>
           </Reveal>
           {page.groups.map((g) => (
             <Reveal key={g.heading} delay={0.1} className="flex flex-col gap-[13px]">

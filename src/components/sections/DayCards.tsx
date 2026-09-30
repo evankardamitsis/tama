@@ -37,7 +37,7 @@ export function DayCards({ heading, cards, className = "" }: { heading: string; 
                 <p className="t-body leading-normal">{c.eyebrow}</p>
                 <h3 className="t-h2 lg:w-[94%]">{c.heading}</h3>
                 <p className="t-body">{c.body}</p>
-                <span className="inline-flex items-center gap-[10px] font-angie text-[12px] leading-normal">
+                <span className="inline-flex items-center gap-[10px] font-angie text-[16px] leading-normal">
                   <Arrow className="transition-transform duration-500 ease-[cubic-bezier(0.22,1,0.36,1)] group-hover:translate-x-[6px]" />
                 </span>
               </div>

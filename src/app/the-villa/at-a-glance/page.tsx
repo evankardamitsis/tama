@@ -24,7 +24,7 @@ export default async function AtAGlancePage() {
 
       <section className="page-container mt-[28px] lg:mt-[55px]">
         <Reveal>
-          <h1 className="t-h2">{page.intro.heading}</h1>
+          <h1 className="t-h1">{page.intro.heading}</h1>
         </Reveal>
 
         <div className="mt-[26px] lg:mt-[52px] flex flex-col gap-10 lg:flex-row lg:gap-0">

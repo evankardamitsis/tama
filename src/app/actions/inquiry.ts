@@ -23,6 +23,8 @@ export async function submitInquiry(_prev: InquiryState, formData: FormData): Pr
   const adults = get("adults");
   const children = get("children") || "0";
   const message = get("message");
+  const human = formData.get("human") === "on";
+  const honeypot = get("company");
 
   const fail = (m: string): InquiryState => ({ status: "error", message: m });
 
@@ -36,6 +38,12 @@ export async function submitInquiry(_prev: InquiryState, formData: FormData): Pr
   }
   if (arrival && departure && departure < arrival) return fail("The departure date falls before the arrival date.");
   if (!adults) return fail("Please tell us how many adults will be staying.");
+  if (!human) return fail("Please confirm you are not a robot.");
+  // A filled honeypot means an automated submission; accept it silently so
+  // the sender learns nothing, but do not pass it on.
+  if (honeypot) {
+    return { status: "success", message: "Thank you for your enquiry. Our team will be in touch to discuss your stay.", note: "Your enquiry does not confirm a reservation." };
+  }
 
   console.info("[enquiry]", {
     name, email, phone, enquiringAs, agency,

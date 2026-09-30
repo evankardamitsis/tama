@@ -19,7 +19,7 @@ export function FilmBlock({ film, className = "" }: { film: HomePage["film"]; cl
   return (
     <section id="film" className={`page-container scroll-mt-[54px] ${className}`}>
       <div className="flex flex-col gap-8 lg:flex-row lg:gap-0">
-        <Reveal className="flex w-full flex-col gap-[13px] lg:w-[41%]">
+        <Reveal className="flex w-full flex-col gap-[13px] lg:w-[49.1%]">
           <p className="t-eyebrow">{film.eyebrow}</p>
           <h2 className="t-h2">{film.heading}</h2>
           <Paragraphs items={film.paragraphs ?? []} />
@@ -37,18 +37,18 @@ export function FilmBlock({ film, className = "" }: { film: HomePage["film"]; cl
           </button>
         </Reveal>
 
-        <Reveal delay={0.15} className="w-full lg:ml-auto lg:w-[54%]">
+        <Reveal delay={0.15} className="w-full lg:w-[50.8%]">
           <button
             type="button"
             onClick={() => setOpen(true)}
             aria-label={film.cta}
-            className="img-zoom relative block aspect-[16/9] w-full overflow-hidden"
+            className="img-zoom relative block aspect-[650/434] w-full overflow-hidden"
           >
             <Image
               src={film.item.video.poster.src}
               alt={film.item.video.poster.alt}
               fill
-              sizes="(min-width: 1024px) 700px, 100vw"
+              sizes="(min-width: 1024px) 650px, 100vw"
               className="object-cover"
             />
             <span className="pointer-events-none absolute inset-0 bg-bark/10 transition-colors duration-700 group-hover:bg-bark/0" />

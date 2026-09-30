@@ -19,7 +19,7 @@ export default async function AboutPage() {
       <Hero hero={page.hero} />
 
       {/* CONCEPT / ENTIRELY PRIVATE — y 673 */}
-      <section className="page-container mt-[25px] lg:mt-[50px] grid grid-cols-1 gap-8 md:grid-cols-2 md:gap-x-[20px] lg:grid-cols-[32.4%_32.6%_32.3%] lg:justify-between lg:gap-0">
+      <section className="page-container mt-[25px] lg:mt-[50px] grid grid-cols-1 gap-8 md:grid-cols-2 md:gap-x-[20px] lg:grid-cols-[32.1%_32.3%_32.3%] lg:justify-between lg:gap-0">
         <div className="flex flex-col md:col-span-2 lg:col-span-1">
           <Reveal className="flex flex-col gap-[13px]">
             <p className="t-eyebrow">{page.concept.eyebrow}</p>
@@ -31,11 +31,11 @@ export default async function AboutPage() {
             <Paragraphs items={page.privacy.paragraphs ?? []} />
           </Reveal>
         </div>
-        <Reveal delay={0.12} className="lg:mt-[19px]">
-          <Picture image={page.conceptImages[0]} zoom className="aspect-[417/457] w-full" sizes="(min-width: 1024px) 417px, 100vw" />
+        <Reveal delay={0.12}>
+          <Picture image={page.conceptImages[0]} zoom className="aspect-[413/618] w-full" sizes="(min-width: 1024px) 413px, 100vw" />
         </Reveal>
-        <Reveal delay={0.24} className="lg:mt-[20px]">
-          <Picture image={page.conceptImages[1]} zoom className="aspect-[414/455] w-full" sizes="(min-width: 1024px) 414px, 100vw" />
+        <Reveal delay={0.24}>
+          <Picture image={page.conceptImages[1]} zoom className="aspect-[413/618] w-full" sizes="(min-width: 1024px) 413px, 100vw" />
         </Reveal>
       </section>
 
@@ -108,7 +108,7 @@ export default async function AboutPage() {
 
       <Rule className="mt-[26px] lg:mt-[53px]" />
 
-      <ExploreCards heading={site.exploreHeading} cards={site.exploreCards} className="mt-[24px] lg:mt-[35px] pb-[25px]" />
+      <ExploreCards heading={site.exploreHeading} cards={site.exploreCards} className="mt-[24px] lg:mt-[35px] pb-[56px] lg:pb-[120px]" />
     </main>
   );
 }

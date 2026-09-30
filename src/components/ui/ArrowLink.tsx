@@ -37,7 +37,7 @@ export function ArrowLink({
       <Arrow className="transition-transform duration-500 ease-[cubic-bezier(0.22,1,0.36,1)] group-hover:translate-x-[6px]" />
     </>
   );
-  const cls = `group inline-flex items-center gap-[10px] font-angie text-[12px] leading-normal ${className}`;
+  const cls = `group inline-flex items-center gap-[10px] font-angie text-[16px] leading-normal ${className}`;
   if (external) {
     return (
       <a href={href} target="_blank" rel="noreferrer" className={cls}>

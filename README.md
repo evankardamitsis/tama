@@ -64,7 +64,11 @@ public/
 Defined in `src/app/globals.css` under `@theme`:
 
 - Colours: `sand #F3EEE7`, `bark #332B25`, `terracotta #B06734`, `navy #1D212B`, `olive #8D8F6B`, `cream #FEFAF0`
-- Type ramp utilities: `t-h1` 34, `t-h2` 26, `t-h3` 22, `t-body` 16/1.0, `t-eyebrow` 16 bold, `t-subline` 12 bold, `t-nav` 14, `t-footer` 14/25
+- Type ramp — **three sizes only**, 34 / 26 / 16 (28 / 22 / 16 on phones).
+  `t-h1` 34 for page titles, `t-h2` (and its `t-h3` alias) 26 for sub-headings,
+  everything else 16 with weight and case carrying the hierarchy:
+  `t-body` 16, `t-eyebrow` 16 bold uppercase, `t-subline` 16 bold, `t-nav` 16,
+  `t-footer` 16/25. Do not introduce a fourth size.
 
 ## Fonts
 

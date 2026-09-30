@@ -155,7 +155,7 @@ export function Hero({ hero, size = "page", brand = "TAMA" }: Props) {
             <button
               type="button"
               onClick={() => setFilmOpen(true)}
-              className="group flex items-center gap-[10px] rounded-full border border-white/25 bg-white/10 py-[6px] pl-[6px] pr-[18px] font-angie text-[14px] leading-normal text-white shadow-[0_8px_30px_rgba(0,0,0,0.12)] backdrop-blur-md transition-colors duration-500 ease-[cubic-bezier(0.22,1,0.36,1)] hover:bg-white/20"
+              className="group flex items-center gap-[10px] rounded-full border border-white/25 bg-white/10 py-[6px] pl-[6px] pr-[18px] font-angie text-[16px] leading-normal text-white shadow-[0_8px_30px_rgba(0,0,0,0.12)] backdrop-blur-md transition-colors duration-500 ease-[cubic-bezier(0.22,1,0.36,1)] hover:bg-white/20"
             >
               <span className="flex h-[34px] w-[34px] items-center justify-center rounded-full bg-white/90 text-bark transition-colors duration-500 ease-[cubic-bezier(0.22,1,0.36,1)] group-hover:bg-white">
                 <svg width="10" height="12" viewBox="0 0 10 12" className="ml-[2px] fill-current" aria-hidden>

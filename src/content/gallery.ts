@@ -42,7 +42,7 @@ export const gallery: GalleryPage = {
   sections: [
     {
       id: "property",
-      title: "Property",
+      title: "The Property",
       items: [
         img("001-drone-2", "Aerial view of the villa and its pool set into the rocky headland", 1821, 1365),
         img("007-uppergate-mainentrance", "The upper gate at the main entrance, a tall clay urn beside the door and the sea beyond", 2048, 1365),

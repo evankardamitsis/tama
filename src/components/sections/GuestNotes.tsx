@@ -89,7 +89,7 @@ export function GuestNotes({
           {items.map((t, i) => (
             <figure key={i} className="w-full shrink-0 snap-start pr-[24px] lg:pr-[80px]">
               <blockquote className="t-h3 max-w-[820px] lg:w-[72%]">{t.quote}</blockquote>
-              <figcaption className="mt-[18px] font-angie text-[12px] leading-normal text-bark/70">
+              <figcaption className="mt-[18px] font-angie text-[16px] leading-normal text-bark/70">
                 {t.attribution}
               </figcaption>
             </figure>

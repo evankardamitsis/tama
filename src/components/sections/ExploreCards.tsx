@@ -33,13 +33,13 @@ export function ExploreCards({ heading, cards, current, className = "" }: Props)
                 className="aspect-[4/5] w-full"
                 sizes="(min-width: 1024px) 300px, (min-width: 640px) 45vw, 240px"
               />
-              <div className="flex items-center justify-between gap-3 px-[10px] pb-[13px] pt-[12px] text-white">
-                <p className="t-h3">{c.title}</p>
-                <Arrow className="shrink-0 transition-transform duration-500 ease-[cubic-bezier(0.22,1,0.36,1)] group-hover:translate-x-[6px]" />
+              <div className="flex flex-col items-start gap-[10px] pb-[14px] pt-[14px] text-white">
+                <p className="t-h2">{c.title}</p>
+                <Arrow className="transition-transform duration-500 ease-[cubic-bezier(0.22,1,0.36,1)] group-hover:translate-x-[6px]" />
               </div>
             </>
           );
-          const cls = "group block bg-bark p-[10px] pb-0";
+          const cls = "group block bg-bark p-[14px] pb-0";
           return (
             <Reveal key={c.key} delay={i * 0.1} className="w-[240px] shrink-0 snap-start sm:w-auto">
               {c.key === current ? (

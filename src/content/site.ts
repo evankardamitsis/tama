@@ -86,7 +86,7 @@ export const site: SiteSettings = {
     ],
     copyright: "COPYRIGHT © 2026 – VILLA TAMA – ALL RIGHT RESERVED",
     credit: {
-      prefix: "Developed with",
+      prefix: "Developed by",
       agency: "Below The Fold",
       href: "https://belowthefold.gr",
     },

@@ -19,16 +19,19 @@ export default async function GalleryPage() {
           <SectionHeading as="h1" eyebrow={page.intro.eyebrow} heading={page.intro.heading} gap={8} className="lg:w-[49.1%]" />
         </Reveal>
 
+        {/* Two halves: the house itself, then the island around it. Each
+            opens with its own title so the split is unmistakable. */}
         {page.sections.map((section, i) => (
           <div
             key={section.id}
             id={section.id}
-            className={`scroll-mt-[54px] ${i === 0 ? "mt-[31px] lg:mt-[44px]" : "mt-[40px] lg:mt-[80px]"}`}
+            className={`scroll-mt-[54px] ${i === 0 ? "mt-[34px] lg:mt-[56px]" : "mt-[56px] lg:mt-[104px]"}`}
           >
-            <Reveal>
-              <p className="t-eyebrow">{section.title}</p>
+            <Reveal className="flex items-baseline gap-[16px]">
+              <h2 className="t-h2 whitespace-nowrap">{section.title}</h2>
+              <span aria-hidden className="h-px flex-1 bg-bark/25" />
             </Reveal>
-            <div className="mt-[18px] lg:mt-[26px]">
+            <div className="mt-[24px] lg:mt-[38px]">
               <GalleryGrid items={section.items} featured={i === 0 ? page.featured : undefined} />
             </div>
           </div>

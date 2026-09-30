@@ -28,7 +28,7 @@ export default async function LayoutPage() {
 
       <section className="page-container mt-[28px] lg:mt-[56px]">
         <Reveal className="flex w-full flex-col gap-[13px] lg:w-[49.2%]">
-          <h1 className="t-h2">{page.intro.heading}</h1>
+          <h1 className="t-h1">{page.intro.heading}</h1>
           <Paragraphs items={page.intro.paragraphs ?? []} />
         </Reveal>
 

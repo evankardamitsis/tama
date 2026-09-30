@@ -71,7 +71,7 @@ export function Lightbox({
                   e.stopPropagation();
                   onStep(-1);
                 }}
-                className="absolute left-[8px] top-1/2 hidden -translate-y-1/2 p-4 font-angie text-[26px] transition-opacity duration-300 hover:opacity-60 lg:block"
+                className="absolute left-[8px] top-1/2 hidden -translate-y-1/2 p-4 t-h2 transition-opacity duration-300 hover:opacity-60 lg:block"
               >
                 ←
               </button>
@@ -82,7 +82,7 @@ export function Lightbox({
                   e.stopPropagation();
                   onStep(1);
                 }}
-                className="absolute right-[8px] top-1/2 hidden -translate-y-1/2 p-4 font-angie text-[26px] transition-opacity duration-300 hover:opacity-60 lg:block"
+                className="absolute right-[8px] top-1/2 hidden -translate-y-1/2 p-4 t-h2 transition-opacity duration-300 hover:opacity-60 lg:block"
               >
                 →
               </button>
@@ -125,7 +125,7 @@ export function Lightbox({
           </motion.figure>
 
           {items.length > 1 && (
-            <p className="absolute bottom-[20px] left-1/2 -translate-x-1/2 font-angie text-[12px] text-white/70">
+            <p className="absolute bottom-[20px] left-1/2 -translate-x-1/2 font-angie text-[16px] text-white/70">
               {index! + 1} / {items.length}
             </p>
           )}

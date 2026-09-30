@@ -35,7 +35,7 @@ export default async function ServicesPage() {
         {/* Service information — left half */}
         <div className="flex w-full flex-col gap-[30px] lg:w-[49.2%]">
           <Reveal className="flex flex-col gap-[13px]">
-            <h1 className="t-h2">{page.intro.heading}</h1>
+            <h1 className="t-h1">{page.intro.heading}</h1>
             <Paragraphs items={page.intro.paragraphs ?? []} />
           </Reveal>
           {page.columns.map((col) => {
@@ -45,7 +45,7 @@ export default async function ServicesPage() {
               <Reveal key={col.heading} delay={0.1} className="flex flex-col gap-[13px]">
                 <h2 className="t-h3">{col.heading}</h2>
                 <Bullets items={items} />
-                {footnote && <p className="font-angie text-[12px] leading-normal text-bark/70">{footnote}</p>}
+                {footnote && <p className="font-angie text-[16px] leading-normal text-bark/70">{footnote}</p>}
               </Reveal>
             );
           })}

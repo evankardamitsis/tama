@@ -96,7 +96,7 @@ export default async function HomePage() {
       <Rule className="mt-[32px] lg:mt-[64px]" />
 
       {/* LOCATION */}
-      <section id="location" className="page-container mt-[26px] lg:mt-[52px] flex scroll-mt-[54px] flex-col gap-10 lg:flex-row lg:gap-0">
+      <section id="location" className="page-container mt-[26px] lg:mt-[52px] flex scroll-mt-[54px] flex-col gap-10 lg:flex-row lg:items-stretch lg:gap-0">
         <Reveal className="mt-[13px] flex w-full flex-col gap-[13px] lg:w-[49.1%]">
           <p className="t-eyebrow">{location.eyebrow}</p>
           <h2 className="t-h2">{location.heading}</h2>
@@ -112,11 +112,11 @@ export default async function HomePage() {
           </div>
           <TextLink link={location.mapsLink} className="mt-[6px] self-start" />
         </Reveal>
-        <Reveal delay={0.2} className="w-full lg:ml-[4.9%] lg:w-[45.4%]">
+        <Reveal delay={0.2} className="w-full lg:ml-[4.9%] lg:flex lg:w-[45.4%]">
           {location.video ? (
-            /* 16:9 so the aerial plays at its native shape — the map's
-               581 × 462 box would crop the sides and upscale it. */
-            <div className="aspect-[16/9] w-full lg:mt-[24px]">
+            /* 16:9 on phones; from lg it stretches to the bottom of the
+               text column so the two sides finish on the same line. */
+            <div className="aspect-[16/9] w-full lg:mt-[24px] lg:aspect-auto lg:h-auto lg:min-h-[320px] lg:flex-1">
               <HoverVideo item={location.video} autoPlay sizes="(min-width: 1024px) 581px, 100vw" />
             </div>
           ) : (
