@@ -4,7 +4,7 @@ export const services: ServicesPage = {
   hero: {
     image: {
       src: "/images/villa-tama-45.jpg",
-      alt: "Breakfast laid out on the terrace before the day begins",
+      alt: "A long table laid for dinner on the terrace at Tama as the light drops",
       width: 3840,
       height: 2560,
     },
@@ -46,15 +46,16 @@ export const services: ServicesPage = {
     },
   ],
   media: [
-    { type: "image", image: { src: "/images/villa-tama-42.jpg", alt: "The chef serving guests at the buffet on the terrace", width: 1364, height: 2048 } },
+    { type: "image", image: { src: "/images/villa-tama-42.jpg", alt: "A plated course from the villa's kitchen, photographed on the terrace", width: 1364, height: 2048 } },
     {
       type: "video",
       video: {
         src: "/videos/reel-10-dinner.mp4",
-        poster: { src: "/images/posters/reel-10-dinner.jpg", alt: "Teppanyaki dinner service at the outdoor kitchen", width: 1080, height: 1920 },
+        poster: { src: "/images/posters/reel-10-dinner.jpg", alt: "Dinner being served at the villa's outdoor table", width: 1080, height: 1920 },
       },
+      caption: "Dinner service",
     },
-    { type: "image", image: { src: "/images/lcphotography-07282.jpg", alt: "Dinner laid out on the terrace as the light drops", width: 2048, height: 1364 } },
+    { type: "image", image: { src: "/images/lcphotography-07282.jpg", alt: "The dining table on the terrace, dressed for an evening meal", width: 2048, height: 1364 } },
   ],
   occasions: {
     eyebrow: "OCCASIONS",
@@ -66,9 +67,9 @@ export const services: ServicesPage = {
   },
   occasionsMedia: [
     { type: "image", image: { src: "/images/dining-outdoor-kitchen-pool-area.jpg", alt: "The outdoor kitchen and dining table beside the pool", width: 2048, height: 1536 } },
-    { type: "image", image: { src: "/images/dining-outdoor-kitchen-pool-area-2.jpg", alt: "The poolside outdoor kitchen with its barbecue and burners", width: 2048, height: 1536 } },
-    { type: "image", image: { src: "/images/upper-terrace.jpg", alt: "The upper terrace laid out for dining in the shade", width: 2048, height: 1536 } },
-    { type: "image", image: { src: "/images/097-terrace-swimmingpool.jpg", alt: "The shaded lounge beside the pool terrace", width: 2048, height: 1365 } },
+    { type: "image", image: { src: "/images/dining-outdoor-kitchen-pool-area-2.jpg", alt: "The long dining table under the outdoor kitchen's timber roof", width: 2048, height: 1536 } },
+    { type: "image", image: { src: "/images/upper-terrace.jpg", alt: "Teak armchairs on the upper terrace between whitewashed walls", width: 2048, height: 1536 } },
+    { type: "image", image: { src: "/images/097-terrace-swimmingpool.jpg", alt: "The pergola dining area on the pool terrace, set for sixteen guests", width: 2048, height: 1365 } },
   ],
   people: {
     eyebrow: "PEOPLE",
@@ -82,7 +83,7 @@ export const services: ServicesPage = {
         name: "Chris",
         role: "Property Manager",
         // Stand-in — the client is sending Chris's own portrait.
-        image: { src: "/images/about-people-1.jpg", alt: "A member of the team on the terrace of the villa", width: 1364, height: 2048 },
+        image: { src: "/images/about-people-1.jpg", alt: "Two of the Tama team setting a table on the shaded terrace", width: 1364, height: 2048 },
       },
       {
         name: "Theo",

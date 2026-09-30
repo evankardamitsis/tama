@@ -32,7 +32,7 @@ export const dining: DayPage = {
         height: 1920,
       },
     },
-    caption: "Dinner at Tama",
+    caption: "Dinner service",
   },
   carousel: [
     { type: "image", image: { src: "/images/villa-tama-42.jpg", alt: "A plated course from the villa's kitchen, photographed on the terrace", width: 1364, height: 2048 } },
@@ -53,7 +53,7 @@ export const dining: DayPage = {
         "He knows the house and its rhythm instinctively. Warm and always smiling, Theo brings an easy, attentive presence to every stay.",
       ],
       media: [
-        { type: "image", image: { src: "/images/team-theo.jpg", alt: "Chef Theo photographed at the villa", width: 1364, height: 2048 } },
+        { type: "image", image: { src: "/images/team-theo.jpg", alt: "Theo, head chef, in the villa kitchen", width: 1364, height: 2048 } },
         { type: "image", image: { src: "/images/chef-theo-2.jpg", alt: "Chef Theo at work, plating a course", width: 1364, height: 2048 } },
       ],
     },

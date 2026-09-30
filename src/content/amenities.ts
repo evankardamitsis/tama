@@ -4,7 +4,7 @@ export const amenities: AmenitiesPage = {
   hero: {
     image: {
       src: "/images/123-terrace-groundlevel.jpg",
-      alt: "The ground-level terrace set for lunch above the sea",
+      alt: "The outdoor kitchen's range and stone counter under the timber roof",
       width: 2047,
       height: 1365,
     },
@@ -66,7 +66,7 @@ export const amenities: AmenitiesPage = {
   media: {
     left: {
       type: "image",
-      image: { src: "/images/amenities-minibar.jpg", alt: "Minibar shelves stocked with glassware and bottles", width: 1364, height: 2048 },
+      image: { src: "/images/amenities-minibar.jpg", alt: "The minibar shelves with coffee machine, books and ceramics", width: 1364, height: 2048 },
     },
     // Placeholder: Michalis's short gym edit replaces this clip.
     right: {
@@ -75,6 +75,7 @@ export const amenities: AmenitiesPage = {
         src: "/videos/reel-1-gym.mp4",
         poster: { src: "/images/posters/reel-1-gym.jpg", alt: "The fitness room with its Technogym equipment", width: 1080, height: 1920 },
       },
+      caption: "The indoor gym",
     },
     wide: {
       type: "image",
@@ -82,11 +83,11 @@ export const amenities: AmenitiesPage = {
     },
   },
   carousel: [
-    { type: "image", image: { src: "/images/123-terrace-groundlevel.jpg", alt: "The ground-level terrace set for lunch above the sea", width: 2047, height: 1365 } },
+    { type: "image", image: { src: "/images/123-terrace-groundlevel.jpg", alt: "The outdoor kitchen's range and stone counter under the timber roof", width: 2047, height: 1365 } },
     { type: "image", image: { src: "/images/137-wellness.jpg", alt: "The wellness area with its massage room and hammam beyond", width: 2047, height: 1365 } },
     { type: "image", image: { src: "/images/amenities-cinema.jpg", alt: "The private cinema, seating turned towards the screen", width: 2048, height: 1536 } },
     { type: "image", image: { src: "/images/amenities-gym.jpg", alt: "Technogym equipment in the fitness room, daylight from the terrace", width: 3840, height: 2880 } },
-    { type: "image", image: { src: "/images/amenities-minibar.jpg", alt: "Minibar shelves stocked with glassware and bottles", width: 1364, height: 2048 } },
+    { type: "image", image: { src: "/images/amenities-minibar.jpg", alt: "The minibar shelves with coffee machine, books and ceramics", width: 1364, height: 2048 } },
   ],
   cta: { label: "View the Full Gallery", href: "/gallery" },
 };

@@ -98,7 +98,7 @@ export const about: AboutPage = {
          image for /images/team-chris.jpg once it arrives. */
       image: {
         src: "/images/about-people-1.jpg",
-        alt: "Chris, Villa Manager",
+        alt: "Two of the Tama team setting a table on the shaded terrace",
         width: 1364,
         height: 2048,
         position: "50% 30%",
@@ -108,13 +108,13 @@ export const about: AboutPage = {
       role: "BUTLER",
       name: "Natalie",
       bio: "Looks after guests throughout the day, coordinating service and responding personally to requests across the house.",
-      image: { src: "/images/team-natalie.jpg", alt: "Natalie, Butler", width: 1364, height: 2048, position: "50% 30%" },
+      image: { src: "/images/team-natalie.jpg", alt: "Natalie, butler, on the terrace", width: 1364, height: 2048, position: "50% 30%" },
     },
     {
       role: "HEAD CHEF",
       name: "Theo",
       bio: "Leads the kitchen and shapes each menu around the season, the occasion and the preferences of every guest.",
-      image: { src: "/images/team-theo.jpg", alt: "Theo, Head Chef", width: 1364, height: 2048, position: "50% 30%" },
+      image: { src: "/images/team-theo.jpg", alt: "Theo, head chef, in the villa kitchen", width: 1364, height: 2048, position: "50% 30%" },
     },
     {
       role: "ASSISTANT CHEF",
@@ -126,13 +126,13 @@ export const about: AboutPage = {
       role: "HOUSEKEEPER",
       name: "Alma",
       bio: "Cares for the bedrooms and shared spaces each day, ensuring the house always feels fresh, calm and beautifully prepared.",
-      image: { src: "/images/team-alma.jpg", alt: "Alma, Housekeeper", width: 1364, height: 2048, position: "50% 30%" },
+      image: { src: "/images/team-alma.jpg", alt: "Alma, housekeeping, inside the main house", width: 1364, height: 2048, position: "50% 30%" },
     },
     {
       role: "GROUNDS & MAINTENANCE",
       name: "Afrim",
       bio: "Cares for the gardens, outdoor spaces and daily maintenance, keeping the property running smoothly throughout each stay.",
-      image: { src: "/images/team-afrim.jpg", alt: "Afrim, Grounds & Maintenance", width: 1364, height: 2048, position: "50% 30%" },
+      image: { src: "/images/team-afrim.jpg", alt: "Afrim, maintenance, in the gardens", width: 1364, height: 2048, position: "50% 30%" },
     },
   ],
   guestNotes: {

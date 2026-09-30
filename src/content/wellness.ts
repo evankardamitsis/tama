@@ -5,7 +5,7 @@ export const wellness: DayPage = {
   hero: {
     image: {
       src: "/images/amenities-gym.jpg",
-      alt: "The air-conditioned fitness room at Tama, equipped by Technogym",
+      alt: "Technogym equipment in the fitness room, daylight from the terrace",
       width: 3840,
       height: 2880,
     },
@@ -26,18 +26,18 @@ export const wellness: DayPage = {
       src: "/videos/reel-1-gym.mp4",
       poster: {
         src: "/images/posters/reel-1-gym.jpg",
-        alt: "Training in the villa's fitness room",
+        alt: "The fitness room with its Technogym equipment",
         width: 1080,
         height: 1920,
       },
     },
-    caption: "The fitness room",
+    caption: "The indoor gym",
   },
   carousel: [
-    { type: "image", image: { src: "/images/137-wellness.jpg", alt: "The wellness area at Tama, opening onto its own terrace", width: 2047, height: 1365 } },
+    { type: "image", image: { src: "/images/137-wellness.jpg", alt: "The wellness area with its massage room and hammam beyond", width: 2047, height: 1365 } },
     { type: "image", image: { src: "/images/wellness-gym-2.jpg", alt: "Free weights and functional training equipment in the fitness room", width: 2048, height: 1536 } },
     { type: "image", image: { src: "/images/wellness-massage.jpg", alt: "The dedicated massage room, set up for a treatment", width: 2048, height: 1536 } },
-    { type: "image", image: { src: "/images/amenities-gym.jpg", alt: "Technogym cardio equipment facing the terrace doors", width: 3840, height: 2880 } },
+    { type: "image", image: { src: "/images/amenities-gym.jpg", alt: "Technogym equipment in the fitness room, daylight from the terrace", width: 3840, height: 2880 } },
   ],
   cta: { label: "Enquire", href: "/#enquiries" },
 };

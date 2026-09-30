@@ -6,7 +6,11 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "lint": "eslint"
+    "lint": "eslint",
+    "cf:migrate": "contentful-migration --space-id $CONTENTFUL_SPACE_ID --management-token $CONTENTFUL_MANAGEMENT_TOKEN contentful/migrations/01-initial-model.cjs",
+    "cf:plan": "tsx contentful/import.ts",
+    "cf:import": "tsx contentful/import.ts",
+    "cf:verify": "tsx contentful/verify.ts"
   },
   "dependencies": {
     "motion": "^13.4.0",
@@ -19,9 +23,13 @@
     "@types/node": "^20",
     "@types/react": "^19",
     "@types/react-dom": "^19",
+    "contentful-management": "^12.19.0",
+    "contentful-migration": "^4.32.0",
+    "dotenv": "^18.0.4",
     "eslint": "^9",
     "eslint-config-next": "16.3.5",
     "tailwindcss": "^4",
+    "tsx": "^4.23.15",
     "typescript": "^5"
   }
 }

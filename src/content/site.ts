@@ -17,7 +17,7 @@ const dayCards: DayCard[] = [
       heading: "From Morning Light to Sunset",
       body: "Two terraces above the Aegean, a heated 7 × 15 m pool, and a garden path down to the sand.",
       href: "/days-at-tama/pool-beach",
-      media: reel("reel-8-beach-2", "The private beach below the villa"),
+      media: reel("reel-8-beach-2", "The sandy beach below the villa, reached by a path through the garden", "Down at the beach"),
     },
     {
       key: "dining",
@@ -25,7 +25,7 @@ const dayCards: DayCard[] = [
       heading: "At the Table",
       body: "Greek and Mediterranean cooking alongside Asian flavours, planned with you before you arrive.",
       href: "/days-at-tama/dining",
-      media: reel("reel-10-dinner", "Dinner served on the terrace at sunset"),
+      media: reel("reel-10-dinner", "Dinner being served at the villa's outdoor table", "Dinner service"),
     },
     {
       key: "wellness",
@@ -33,7 +33,7 @@ const dayCards: DayCard[] = [
       heading: "Strength and Stillness",
       body: "A Technogym-equipped fitness room, hammam and dedicated massage room, steps from the pool.",
       href: "/days-at-tama/wellness",
-      media: reel("reel-3-massage", "The massage room"),
+      media: reel("reel-3-massage", "The massage room — still from the film", "The massage room"),
     },
   ];
 
@@ -104,7 +104,7 @@ export const site: SiteSettings = {
       href: "/the-villa/at-a-glance",
       image: {
         src: "/images/villa-tama-2.jpg",
-        alt: "The villa above the Aegean, photographed by Miltos Dimas",
+        alt: "The living and dining room with woven pendants and doors open to the garden",
         width: 2560,
         height: 3840,
       },
