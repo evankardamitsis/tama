@@ -18,6 +18,9 @@ type Props = {
   dots?: boolean;
 };
 
+/** Above this many slides the dots give way to a counter. */
+const DOT_LIMIT = 8;
+
 /**
  * Scroll-snap slideshow. Native scrolling does the work (so it is smooth on
  * touch and keyboard-accessible), with arrows and dots driven off the
@@ -101,8 +104,14 @@ export function Carousel({ items, ratio = "3/2", perView = 2, className = "", do
 
       {items.length > 1 && (
         <div className="mt-[16px] flex items-center justify-between gap-6">
-          {dots ? (
-            <div className="flex items-center gap-[8px]">
+          {dots && items.length > DOT_LIMIT ? (
+            /* Past a handful of slides a dot row is both useless and wider
+               than a phone, so it becomes a counter. */
+            <p className="font-angie text-[16px] leading-normal tabular-nums text-bark/70">
+              {active + 1} / {items.length}
+            </p>
+          ) : dots ? (
+            <div className="flex flex-wrap items-center gap-[8px]">
               {items.map((_, i) => (
                 <button
                   key={i}

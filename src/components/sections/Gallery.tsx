@@ -74,16 +74,22 @@ export function Gallery({ gallery, id = "gallery" }: { gallery: CollageContent; 
         })}
       </div>
 
-      {/* Mobile: simple two-column stack */}
+      {/* Phones: two columns, but a landscape photo takes the full width
+          rather than being cropped to a portrait tile. */}
       <div className="mt-[31px] grid grid-cols-2 gap-[12px] md:hidden">
         {gallery.items.map((it, i) => {
-          const wide = it.type === "image" && i % 3 === 0;
+          const wide = it.type === "image" && it.image.width > it.image.height;
           const key = it.type === "image" ? it.image.src : it.video.src;
           return (
             <Reveal key={key} delay={(i % 2) * 0.08} className={wide ? "col-span-2" : ""}>
               {it.type === "image" ? (
                 <button type="button" onClick={() => setOpen(i)} aria-label={it.image.alt} className="block w-full">
-                  <Picture image={coverFallback(it.image)} zoom className={wide ? "aspect-[3/2] w-full" : "aspect-[3/4] w-full"} sizes={wide ? "100vw" : "50vw"} />
+                  <Picture
+                    image={coverFallback(it.image)}
+                    zoom
+                    className={wide ? "aspect-[3/2] w-full" : "aspect-[3/4] w-full"}
+                    sizes={wide ? "100vw" : "50vw"}
+                  />
                 </button>
               ) : (
                 <div className="aspect-[3/4] w-full">

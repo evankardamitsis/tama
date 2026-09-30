@@ -29,14 +29,20 @@ export default async function HomePage() {
           <h1 className="t-h1">
             <Lines text={description.heading} />
           </h1>
-          <p className="t-body">
+          {/* Wraps as a flex row: the spans carried no whitespace between
+              them, so a nowrap run had nowhere to break on a phone. */}
+          <ul className="t-body flex flex-wrap items-baseline gap-x-[8px] gap-y-[4px]">
             {description.facts.map((f, i) => (
-              <span key={f} className="whitespace-nowrap">
-                {f}
-                {i < description.facts.length - 1 && <span className="px-[8px] text-bark/50">·</span>}
-              </span>
+              <li key={f} className="flex items-baseline gap-x-[8px]">
+                <span>{f}</span>
+                {i < description.facts.length - 1 && (
+                  <span aria-hidden className="text-bark/50">
+                    ·
+                  </span>
+                )}
+              </li>
             ))}
-          </p>
+          </ul>
         </Reveal>
         <Reveal delay={0.15} className="w-full lg:ml-auto lg:w-[49.2%]">
           <Paragraphs items={description.body} />

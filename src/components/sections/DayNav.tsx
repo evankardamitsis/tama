@@ -33,7 +33,7 @@ export function DayNav({
           const here = c.key === current;
           const inner = (
             <>
-              <div className={`aspect-[3/2] w-full ${here ? "opacity-45" : ""}`}>
+              <div className={`aspect-[3/4] w-full ${here ? "opacity-45" : ""}`}>
                 {c.media.type === "image" ? (
                   <Picture
                     image={coverFallback(c.media.image)}
