@@ -49,8 +49,11 @@ async function fetchAll<T>(kind: "entries" | "assets"): Promise<T[]> {
     const url = `${base}?limit=1000&skip=${skip}${kind === "entries" ? "&include=0" : ""}`;
     const res = await fetch(url, {
       headers: { Authorization: `Bearer ${token()}` },
-      // Content changes only when someone publishes, and a webhook rebuilds.
-      next: { revalidate: 3600, tags: ["contentful"] },
+      /* Baked into the build: publishing in Contentful fires a webhook that
+         redeploys, so there is nothing to revalidate at request time and the
+         routes stay fully static. In development the opposite is wanted —
+         an edit should show on the next reload. */
+      cache: process.env.NODE_ENV === "development" ? "no-store" : "force-cache",
     });
     if (!res.ok) throw new Error(`Contentful ${kind}: ${res.status} ${await res.text()}`);
     const page = (await res.json()) as { items: T[]; total: number };
