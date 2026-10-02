@@ -15,6 +15,7 @@ contentful/
 ## Commands
 
 ```bash
+npm run cf:setup      # first contact: checks credentials, reports the locale, creates staging
 npm run cf:plan       # build the graph, validate it, print a summary. No network.
 npm run cf:verify     # reconstruct every page from the graph and diff it. No network.
 npm run cf:migrate    # create the content model in a space

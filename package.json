@@ -10,7 +10,8 @@
     "cf:migrate": "tsx contentful/migrate.ts",
     "cf:plan": "tsx contentful/import.ts",
     "cf:import": "tsx contentful/import.ts",
-    "cf:verify": "tsx contentful/verify.ts"
+    "cf:verify": "tsx contentful/verify.ts",
+    "cf:setup": "tsx contentful/setup.ts"
   },
   "dependencies": {
     "motion": "^13.4.0",
