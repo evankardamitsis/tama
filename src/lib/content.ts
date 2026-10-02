@@ -1,10 +1,14 @@
 /**
  * Content access layer.
  *
- * Today every getter returns the static module from `src/content`.
- * Phase 2 (Contentful): replace the bodies with `contentful` client calls
- * and map the entries onto the same types — pages and components stay as is.
+ * Reads from Contentful when a space is configured, and falls back to the
+ * static modules in `src/content` when it is not — so the site still builds
+ * and runs with no credentials, and the modules stay as the reference the
+ * migration is verified against.
  */
+import { contentfulEnabled, loadStore } from "./contentful/store";
+import * as map from "./contentful/map";
+
 import { site } from "@/content/site";
 import { home } from "@/content/home";
 import { about } from "@/content/about";
@@ -28,36 +32,42 @@ import type {
   SiteSettings,
 } from "@/content/types";
 
+/** Reads from Contentful if it is configured, otherwise the static module. */
+async function from<T>(read: (s: Awaited<ReturnType<typeof loadStore>>) => T, fallback: T): Promise<T> {
+  if (!contentfulEnabled()) return fallback;
+  return read(await loadStore());
+}
+
 export async function getSiteSettings(): Promise<SiteSettings> {
-  return site;
+  return from(map.siteSettings, site);
 }
 export async function getHomePage(): Promise<HomePage> {
-  return home;
+  return from(map.homePage, home);
 }
 export async function getAboutPage(): Promise<AboutPage> {
-  return about;
+  return from(map.aboutPage, about);
 }
 export async function getAtAGlancePage(): Promise<AtAGlancePage> {
-  return atAGlance;
+  return from(map.atAGlancePage, atAGlance);
 }
 export async function getAmenitiesPage(): Promise<AmenitiesPage> {
-  return amenities;
+  return from(map.amenitiesPage, amenities);
 }
 export async function getLayoutPage(): Promise<LayoutPage> {
-  return layout;
+  return from(map.layoutPage, layout);
 }
 export async function getServicesPage(): Promise<ServicesPage> {
-  return services;
+  return from(map.servicesPage, services);
 }
 export async function getPoolBeachPage(): Promise<DayPage> {
-  return poolBeach;
+  return from((s) => map.dayPage(s, "pool-beach"), poolBeach);
 }
 export async function getDiningPage(): Promise<DayPage> {
-  return dining;
+  return from((s) => map.dayPage(s, "dining"), dining);
 }
 export async function getWellnessPage(): Promise<DayPage> {
-  return wellness;
+  return from((s) => map.dayPage(s, "wellness"), wellness);
 }
 export async function getGalleryPage(): Promise<GalleryPage> {
-  return gallery;
+  return from(map.galleryPage, gallery);
 }
