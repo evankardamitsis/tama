@@ -70,9 +70,13 @@ module.exports = function (migration) {
   media.createField("cropHeight").name("Crop height %").type("Number").required(false);
   media.createField("cropLeft").name("Crop left %").type("Number").required(false);
   media.createField("cropTop").name("Crop top %").type("Number").required(false);
-  /* Films are referenced by URL, not uploaded: Contentful caps assets at
-     50 MB on Free and Lite, and the main film is 60 MB. A URL also lets the
-     films move to a proper video host without touching the model. */
+  /* Films are referenced by URL rather than uploaded. Every film now fits
+     the 50 MB asset cap, so this is about delivery, not size: Contentful
+     has no adaptive streaming, and the Free plan's 50 GB of monthly asset
+     bandwidth would be spent by roughly 1,500 homepage visits of the 32 MB
+     hero loop alone. A URL serves films from wherever suits — the repo
+     today, Contentful or a video host on a paid plan — without the model
+     changing. */
   media
     .createField("videoUrl")
     .name("Film URL")

@@ -51,11 +51,13 @@ pass updates the same entries rather than creating a second copy.
 
 ## Decisions baked into the model
 
-**Films are referenced by URL, not uploaded.** Contentful caps assets at 50 MB
-on the Free and Lite plans and `villa-film.mp4` is 60 MB, so it cannot be
-uploaded at all below Premium. `mediaItem.videoUrl` is a plain string, so the
-films can stay where they are or move to a video host without the model
-changing.
+**Films are referenced by URL, not uploaded.** Every film now fits the 50 MB
+asset cap, so this is a delivery question rather than a size one. Contentful
+has no adaptive streaming, and the Free plan's 50 GB of monthly asset
+bandwidth would be spent by roughly 1,500 homepage visits of the 32 MB hero
+loop alone — today Vercel serves those bytes. `mediaItem.videoUrl` is a plain
+string, so films can be served from the repo, from Contentful on a paid plan,
+or from a video host, without the model changing.
 
 **One `mediaItem` per file *and framing*.** A focal point is a property of a
 placement, not of a photograph: the same image in a 3:4 box and a 16:9 box
