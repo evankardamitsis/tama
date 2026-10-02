@@ -213,9 +213,12 @@ module.exports = function (migration) {
     .createContentType("testimonial")
     .name("Guest note")
     .displayField("attribution");
+  /* Both fields first: changeEditorInterface (via multiline) closes the
+     current chunk, and a display field created after that split does not
+     exist yet when the display field is set. */
   note.createField("quote").name("Quote").type("Text").required(true);
-  multiline(note, "quote");
   note.createField("attribution").name("Attribution").type("Symbol").required(true);
+  multiline(note, "quote");
 
   /* ----------------------------- Press item --------------------------- */
   const press = migration

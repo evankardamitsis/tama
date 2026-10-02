@@ -8,12 +8,14 @@
  * shell-exported variables (npm does not load env files for it) and stops
  * on an interactive confirmation prompt.
  */
+import path from "node:path";
 import { environmentId, managementToken, spaceId } from "./lib/env";
 import { runMigration } from "contentful-migration";
 
 async function main() {
   await runMigration({
-    filePath: "contentful/migrations/01-initial-model.cjs",
+    // Absolute: a bare relative path is resolved as a package name by require().
+    filePath: path.resolve("contentful/migrations/01-initial-model.cjs"),
     spaceId: spaceId(),
     accessToken: managementToken(),
     environmentId: environmentId(),
