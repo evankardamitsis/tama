@@ -5,6 +5,7 @@ import { AnimatePresence, motion, useReducedMotion } from "motion/react";
 import { useEffect } from "react";
 import { DUR, EASE } from "@/components/motion/easing";
 import { Icon } from "@/components/ui/Icon";
+import { cdnImage } from "@/lib/cdnImage";
 import type { GalleryItem } from "@/content/types";
 
 /* ------------------------------- Lightbox ------------------------------- */
@@ -110,7 +111,7 @@ export function Lightbox({
             ) : (
               <video
                 src={item.video.src}
-                poster={item.video.poster.src}
+                poster={cdnImage(item.video.poster.src, 1600)}
                 controls
                 autoPlay
                 playsInline

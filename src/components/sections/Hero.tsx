@@ -3,6 +3,7 @@
 import { motion, useReducedMotion, useScroll, useTransform } from "motion/react";
 import { useCallback, useEffect, useRef, useState } from "react";
 import { Picture } from "@/components/ui/Picture";
+import { cdnImage } from "@/lib/cdnImage";
 import { Icon } from "@/components/ui/Icon";
 import { Preloader } from "./Preloader";
 import { Lightbox } from "./Lightbox";
@@ -50,7 +51,8 @@ function HeroVideo({
     <video
       key={src}
       src={src}
-      poster={isMobile && mobilePoster ? mobilePoster : poster}
+      /* Only shown until the film can play, so it does not need the 3840px original. */
+      poster={cdnImage(isMobile && mobilePoster ? mobilePoster : poster, isMobile ? 800 : 1600)}
       autoPlay
       muted
       loop

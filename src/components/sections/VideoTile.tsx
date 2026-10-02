@@ -2,6 +2,7 @@
 
 import Image from "next/image";
 import { useRef, useState } from "react";
+import { cdnImage } from "@/lib/cdnImage";
 import type { GalleryItem } from "@/content/types";
 
 function ratio(item: GalleryItem) {
@@ -63,7 +64,8 @@ export function VideoTile({ item, onOpen, fill, sizes = "(min-width: 1024px) 33v
         loop
         playsInline
         preload="metadata"
-        poster={item.video.poster.src}
+        /* A tile is never wider than ~700px; the full-size original would be wasted bytes. */
+        poster={cdnImage(item.video.poster.src, 800)}
         className="absolute inset-0 h-full w-full object-cover"
       >
         {item.video.webm && <source src={item.video.webm} type="video/webm" />}

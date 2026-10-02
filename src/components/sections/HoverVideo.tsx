@@ -2,6 +2,7 @@
 
 import Image from "next/image";
 import { useRef, useState } from "react";
+import { cdnImage } from "@/lib/cdnImage";
 import type { GalleryItem } from "@/content/types";
 
 /**
@@ -58,7 +59,7 @@ export function HoverVideo({
         playsInline
         autoPlay={autoPlay}
         preload="metadata"
-        poster={item.video.poster.src}
+        poster={cdnImage(item.video.poster.src, 1200)}
         className="absolute inset-0 h-full w-full object-cover"
       >
         {item.video.webm && <source src={item.video.webm} type="video/webm" />}
