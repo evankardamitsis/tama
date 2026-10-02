@@ -7,7 +7,7 @@
     "build": "next build",
     "start": "next start",
     "lint": "eslint",
-    "cf:migrate": "contentful-migration --space-id $CONTENTFUL_SPACE_ID --management-token $CONTENTFUL_MANAGEMENT_TOKEN contentful/migrations/01-initial-model.cjs",
+    "cf:migrate": "tsx contentful/migrate.ts",
     "cf:plan": "tsx contentful/import.ts",
     "cf:import": "tsx contentful/import.ts",
     "cf:verify": "tsx contentful/verify.ts"

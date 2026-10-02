@@ -35,10 +35,15 @@ import, never in the app bundle or in git.
 ## Running it for real
 
 ```bash
-export CONTENTFUL_SPACE_ID=... CONTENTFUL_MANAGEMENT_TOKEN=...
-npm run cf:migrate -- --environment-id staging   # model first
+cp .env.example .env.local        # then fill it in
+CONTENTFUL_ENVIRONMENT=staging npm run cf:migrate       # model first
 CONTENTFUL_ENVIRONMENT=staging npm run cf:import -- --apply
 ```
+
+Both read `.env.local`. The import checks the space's locales before it
+writes anything: every field is keyed on the locale code, so a space created
+as `en` rather than `en-US` would otherwise fail on all 450 records one at a
+time.
 
 Do it on `staging`, check it, then alias `master` to that environment. The
 import is safe to re-run: every id is derived from the content, so a second

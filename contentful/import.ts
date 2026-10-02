@@ -7,14 +7,14 @@
  * Safe to run more than once: every id is derived from the content, so a
  * second run updates the same entries instead of duplicating them.
  */
-import "dotenv/config";
 import fs from "node:fs";
 import path from "node:path";
 import { createClient } from "contentful-management";
 import type { PlainClientAPI } from "contentful-management";
 import { buildPlan, PUBLIC_DIR, type PlannedAsset, type PlannedEntry } from "./lib/plan";
+import { environmentId, locale, managementToken, spaceId } from "./lib/env";
 
-const LOCALE = process.env.CONTENTFUL_LOCALE ?? "en-US";
+const LOCALE = locale();
 const APPLY = process.argv.includes("--apply");
 
 /* ------------------------------ validation ------------------------------ */
@@ -89,7 +89,15 @@ const localised = (fields: Record<string, unknown>) =>
 
 async function upsertAsset(cf: PlainClientAPI, a: PlannedAsset) {
   const existing = await cf.asset.get({ assetId: a.id }).catch(() => null);
-  if (existing) return existing;
+  if (existing) {
+    // A previous run may have died between create, process and publish.
+    const file = existing.fields.file?.[LOCALE];
+    const processed = file?.url ? existing : await cf.asset.processForAllLocales({}, existing);
+    if (processed.sys.publishedVersion && processed.sys.version <= processed.sys.publishedVersion + 1) {
+      return processed;
+    }
+    return cf.asset.publish({ assetId: a.id }, processed);
+  }
 
   // Streamed rather than buffered — some of these files are large.
   const upload = await cf.upload.create(
@@ -159,15 +167,26 @@ async function main() {
     return;
   }
 
-  const token = process.env.CONTENTFUL_MANAGEMENT_TOKEN;
-  const space = process.env.CONTENTFUL_SPACE_ID;
-  const environmentId = process.env.CONTENTFUL_ENVIRONMENT ?? "master";
-  if (!token || !space) throw new Error("Set CONTENTFUL_MANAGEMENT_TOKEN and CONTENTFUL_SPACE_ID (see .env.example).");
+  const token = managementToken();
+  const space = spaceId();
+  const environment = environmentId();
 
   const cf = createClient(
     { accessToken: token },
-    { type: "plain", defaults: { spaceId: space, environmentId } },
+    { type: "plain", defaults: { spaceId: space, environmentId: environment } },
   );
+
+  // Every write is keyed on the locale code, so a mismatch fails on all 450
+  // records rather than one. Check it before touching anything.
+  const locales = await cf.locale.getMany({});
+  const codes = locales.items.map((l) => l.code);
+  if (!codes.includes(LOCALE)) {
+    const fallback = locales.items.find((l) => l.default)?.code;
+    throw new Error(
+      `This space has no "${LOCALE}" locale (it has ${codes.join(", ")}). ` +
+        `Set CONTENTFUL_LOCALE=${fallback} in .env.local, or add the locale in Contentful.`,
+    );
+  }
 
   let n = 0;
   for (const a of plan.assets.values()) {
@@ -185,6 +204,6 @@ async function main() {
 }
 
 main().catch((err) => {
-  console.error(err);
+  console.error(`\n  ${err instanceof Error ? err.message : err}\n`);
   process.exit(1);
 });

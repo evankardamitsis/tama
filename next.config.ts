@@ -5,6 +5,8 @@ const nextConfig: NextConfig = {
     // 75 for content imagery, 90 reserved for full-bleed heroes
     qualities: [75, 90],
     deviceSizes: [640, 750, 828, 1080, 1200, 1920, 2048, 2560, 3840],
+    // Contentful serves assets from its own CDN once the getters swap over.
+    remotePatterns: [{ protocol: "https", hostname: "images.ctfassets.net" }],
   },
   async redirects() {
     return [
