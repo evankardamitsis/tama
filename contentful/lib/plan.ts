@@ -164,6 +164,9 @@ export class Plan {
         alt: video.poster.alt,
         width: video.poster.width,
         height: video.poster.height,
+        // Uploaded so the team can swap films themselves; the path stays
+        // as the fallback the mapper uses when no file is attached.
+        videoFile: this.asset(video.src, slug, item.caption ?? video.poster.alt),
         videoUrl: video.src,
         videoWebmUrl: video.webm,
         caption: item.caption,

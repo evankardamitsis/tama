@@ -73,10 +73,13 @@ export function media(s: Store, ref: unknown): GalleryItem {
     return { type: "image", image: image(s, ref), caption: str(e, "caption") };
   }
   const poster = s.asset(e.fields.image).fields.file;
+  // An uploaded film wins; the path is the fallback for anything still
+  // served from the repo, such as the hero loop.
+  const uploaded = e.fields.videoFile ? s.asset(e.fields.videoFile).fields.file : undefined;
   return {
     type: "video",
     video: {
-      src: str(e, "videoUrl")!,
+      src: uploaded ? `https:${uploaded.url}` : str(e, "videoUrl")!,
       poster: {
         src: `https:${poster!.url}`,
         alt: str(e, "alt")!,

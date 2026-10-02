@@ -10,7 +10,7 @@
 import fs from "node:fs";
 import path from "node:path";
 import { createClient } from "contentful-management";
-import type { PlainClientAPI } from "contentful-management";
+import type { AssetProps, PlainClientAPI } from "contentful-management";
 import { buildPlan, PUBLIC_DIR, type PlannedAsset, type PlannedEntry } from "./lib/plan";
 import { environmentId, locale, managementToken, spaceId } from "./lib/env";
 
@@ -25,6 +25,9 @@ const MIME: Record<string, string> = {
   ".png": "image/png",
   ".webp": "image/webp",
   ".svg": "image/svg+xml",
+  ".mp4": "video/mp4",
+  ".webm": "video/webm",
+  ".mov": "video/quicktime",
 };
 
 /** Contentful caps a Symbol at 256 characters; Text is unbounded. */
@@ -87,12 +90,28 @@ const localised = (fields: Record<string, unknown>) =>
       .map(([k, v]) => [k as string, { [LOCALE]: v }]),
   );
 
+/**
+ * Contentful processes an upload asynchronously, and film takes noticeably
+ * longer than a photograph. Publishing before the file URL exists produces
+ * an asset that resolves to nothing, so wait for it.
+ */
+async function waitForFile(cf: PlainClientAPI, asset: AssetProps, assetId: string): Promise<AssetProps> {
+  for (let i = 0; i < 60; i++) {
+    if (asset.fields.file?.[LOCALE]?.url) return asset;
+    await new Promise((r) => setTimeout(r, 2000));
+    asset = await cf.asset.get({ assetId });
+  }
+  throw new Error(`Contentful never finished processing ${assetId}`);
+}
+
 async function upsertAsset(cf: PlainClientAPI, a: PlannedAsset) {
   const existing = await cf.asset.get({ assetId: a.id }).catch(() => null);
   if (existing) {
     // A previous run may have died between create, process and publish.
     const file = existing.fields.file?.[LOCALE];
-    const processed = file?.url ? existing : await cf.asset.processForAllLocales({}, existing);
+    const processed = file?.url
+      ? existing
+      : await waitForFile(cf, await cf.asset.processForAllLocales({}, existing), a.id);
     if (processed.sys.publishedVersion && processed.sys.version <= processed.sys.publishedVersion + 1) {
       return processed;
     }
@@ -120,16 +139,19 @@ async function upsertAsset(cf: PlainClientAPI, a: PlannedAsset) {
       },
     },
   );
-  const processed = await cf.asset.processForAllLocales({}, asset);
+  const processed = await waitForFile(cf, await cf.asset.processForAllLocales({}, asset), a.id);
   return cf.asset.publish({ assetId: a.id }, processed);
 }
 
 async function upsertEntry(cf: PlainClientAPI, e: PlannedEntry) {
-  const fields = localised(e.fields) as never;
+  const fields = localised(e.fields) as Record<string, unknown>;
   const existing = await cf.entry.get({ entryId: e.id }).catch(() => null);
+  // A film someone has swapped in Contentful is theirs; re-running the
+  // import must not put ours back over the top of it.
+  if (existing?.fields?.videoFile) fields.videoFile = existing.fields.videoFile;
   const saved = existing
-    ? await cf.entry.update({ entryId: e.id }, { ...existing, fields })
-    : await cf.entry.createWithId({ entryId: e.id, contentTypeId: e.contentType }, { fields });
+    ? await cf.entry.update({ entryId: e.id }, { ...existing, fields: fields as never })
+    : await cf.entry.createWithId({ entryId: e.id, contentTypeId: e.contentType }, { fields: fields as never });
   return cf.entry.publish({ entryId: e.id }, saved);
 }
 

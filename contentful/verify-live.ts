@@ -29,7 +29,7 @@ import { gallery } from "../src/content/gallery";
 /** Drops undefined and empty arrays, and reduces any media URL to its filename. */
 function canonical(v: unknown): unknown {
   if (typeof v === "string") {
-    const m = /^(?:https?:)?\/\/images\.ctfassets\.net\/.*\/([^/?]+)$/.exec(v) ?? /^\/(?:images|videos)\/(?:posters\/)?(.+)$/.exec(v);
+    const m = /^(?:https?:)?\/\/[\w.-]*ctfassets\.net\/.*\/([^/?]+)$/.exec(v) ?? /^\/(?:images|videos)\/(?:posters\/)?(.+)$/.exec(v);
     return m ? decodeURIComponent(m[1]) : v;
   }
   if (Array.isArray(v)) return v.map(canonical);
